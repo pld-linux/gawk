@@ -5,7 +5,7 @@ Summary(pl):	Narzêdzia do obróbki plików tekstowych z GNU
 Summary(tr):	GNU araçlarý metin düzenleyici
 Name:		gawk
 Version:	3.0.3
-Release:	9
+Release:	10
 Copyright:	GPL
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
