@@ -94,7 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_infodir}/*info*
 %attr(755,root,root) /usr/libexec/awk
-/usr/share/awk
+%{_datadir}/awk
 
 %changelog
 * Mon Apr 19 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
