@@ -8,13 +8,13 @@ Version:	3.0.6
 Release:	1
 License:	GPL
 Group:		Utilities/Text
-Group(fr):	Utilitaires/Texte
 Group(pl):	Narzêdzia/Tekst
+Group(fr):	Utilitaires/Texte
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
-Patch0:		gawk-unaligned.patch
-Patch1:		gawk-info.patch
-Patch2:		gawk-mktemp.patch
-Patch3:		gawk-DESTDIR.patch
+Patch0:		%{name}-unaligned.patch
+Patch1:		%{name}-info.patch
+Patch2:		%{name}-mktemp.patch
+Patch3:		%{name}-DESTDIR.patch
 Requires:	mktemp
 Requires:	sed
 BuildRequires:	texinfo
@@ -74,7 +74,6 @@ Araçlarýndan biridir.
 %patch3 -p1 -b .wiget
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure
 %{__make}
 
