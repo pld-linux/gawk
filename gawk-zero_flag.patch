@@ -1,0 +1,17 @@
+--- builtin.c
++++ builtin.c	1999/09/27 16:04:29
+@@ -460,7 +460,13 @@
+ 			break;
+ 
+ 		case '0':
+-			zero_flag = TRUE;
++			/*
++			 * Only turn on zero_flag if we haven't seen
++			 * the field width or precision yet.  Otherwise,
++			 * screws up floating point formatting.
++			 */
++			if (cur == & fw && fw == 0)
++				zero_flag = TRUE;
+ 			if (lj)
+ 				goto retry;
+ 			/* FALL through */
