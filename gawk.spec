@@ -8,8 +8,8 @@ Summary(ru):	GNU версия утилиты обработки текстов awk
 Summary(tr):	GNU araГlarЩ metin dЭzenleyici
 Summary(uk):	GNU верс╕я утил╕ти обробки текст╕в awk
 Name:		gawk
-Version:	3.1.0
-Release:	6
+Version:	3.1.1
+Release:	1
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
@@ -17,7 +17,6 @@ Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-newsecurity.patch
 Patch2:		%{name}-shutup.patch
-Patch3:		%{name}-hex.patch
 Requires:	mktemp
 Requires:	sed
 BuildRequires:	texinfo
@@ -96,7 +95,6 @@ AraГlarЩndan biridir.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
 %configure2_13 \
