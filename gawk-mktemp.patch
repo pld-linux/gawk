@@ -1,0 +1,86 @@
+--- gawk-3.0.3.orig/awklib/eg/prog/igawk.sh
++++ gawk-3.0.3/awklib/eg/prog/igawk.sh
+@@ -4,13 +4,16 @@
+ # Arnold Robbins, arnold@gnu.ai.mit.edu, Public Domain
+ # July 1993
+ 
++igs=`mktemp ${TEMDIR:-/tmp}/ig.s.XXXXXX` || exit 1
++ige=`mktemp ${TEMDIR:-/tmp}/ig.e.XXXXXX` || exit 1
++
+ if [ "$1" = debug ]
+ then
+     set -x
+     shift
+ else
+     # cleanup on exit, hangup, interrupt, quit, termination
+-    trap 'rm -f /tmp/ig.[se].$$' 0 1 2 3 15
++    trap 'rm -f $igs $ige' 0 1 2 3 15
+ fi
+ 
+ while [ $# -ne 0 ] # loop over arguments
+@@ -27,26 +30,26 @@
+ 
+     -[vF]*) opts="$opts '$1'" ;;
+ 
+-    -f)     echo @include "$2" >> /tmp/ig.s.$$
++    -f)     echo @include "$2" >> $igs
+             shift;;
+ 
+     -f*)    f=`echo "$1" | sed 's/-f//'`
+-            echo @include "$f" >> /tmp/ig.s.$$ ;;
++            echo @include "$f" >> $igs ;;
+ 
+     -?file=*)    # -Wfile or --file
+             f=`echo "$1" | sed 's/-.file=//'`
+-            echo @include "$f" >> /tmp/ig.s.$$ ;;
++            echo @include "$f" >> $igs ;;
+ 
+     -?file)    # get arg, $2
+-            echo @include "$2" >> /tmp/ig.s.$$
++            echo @include "$2" >> $igs
+             shift;;
+ 
+     -?source=*)    # -Wsource or --source
+             t=`echo "$1" | sed 's/-.source=//'`
+-            echo "$t" >> /tmp/ig.s.$$ ;;
++            echo "$t" >> $igs ;;
+ 
+     -?source)  # get arg, $2
+-            echo "$2" >> /tmp/ig.s.$$
++            echo "$2" >> $igs
+             shift;;
+ 
+     -?version)
+@@ -61,19 +64,19 @@
+     shift
+ done
+ 
+-if [ ! -s /tmp/ig.s.$$ ]
++if [ ! -s $igs ]
+ then
+     if [ -z "$1" ]
+     then
+          echo igawk: no program! 1>&2
+          exit 1
+     else
+-        echo "$1" > /tmp/ig.s.$$
++        echo "$1" > $igs
+         shift
+     fi
+ fi
+ 
+-# at this point, /tmp/ig.s.$$ has the program
++# at this point, $igs has the program
+ gawk -- '
+ # process @include directives
+ 
+@@ -124,7 +127,7 @@
+         }
+         close(input[stackptr])
+     }
+-}' /tmp/ig.s.$$ > /tmp/ig.e.$$
+-eval gawk -f /tmp/ig.e.$$ $opts -- "$@"
++}' $igs > $ige
++eval gawk -f $ige $opts -- "$@"
+ 
+ exit $?
