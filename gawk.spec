@@ -10,7 +10,7 @@ Summary(tr):	GNU araГlarЩ metin dЭzenleyici
 Summary(uk):	GNU верс╕я утил╕ти обробки текст╕в awk
 Name:		gawk
 Version:	3.1.4
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
