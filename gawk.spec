@@ -9,28 +9,26 @@ Summary(ru):	GNU ×ÅÒÓÉÑ ÕÔÉÌÉÔÙ ÏÂÒÁÂÏÔËÉ ÔÅËÓÔÏ× awk
 Summary(tr):	GNU araçlarý metin düzenleyici
 Summary(uk):	GNU ×ÅÒÓ¦Ñ ÕÔÉÌ¦ÔÉ ÏÂÒÏÂËÉ ÔÅËÓÔ¦× awk
 Name:		gawk
-Version:	3.1.3
-Release:	3
+Version:	3.1.4
+Release:	1
 License:	GPL
 Group:		Applications/Text
-Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	a116eec17e7ba085febb74c7758823bd
+Source0:	ftp://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
+# Source0-md5:	b8b532beaf02350e69d2d5dc98cb1e37
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
-Source2:	%{name}-pl.po
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-pmake.patch
 Patch3:		%{name}-it_po.patch
-Patch4:		%{name}-acinclude.patch
-BuildRequires:	autoconf >= 2.57
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1.7
 BuildRequires:	texinfo >= 4.3
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-devel >= 0.14.1
 Requires:	mktemp
 Requires:	sed
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gawk-doc
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The gawk packages contains the GNU version of awk, a text processing
@@ -100,15 +98,11 @@ Araçlarýndan biridir.
 ÐÒÁËÔÉÞÎÏ ÐÏ×Î¦ÓÔÀ ×¦ÄÐÏ×¦ÄÁ¤ ÓÔÁÎÄÁÒÔÕ 1993 POSIX 1003.2 ÎÁ awk.
 
 %prep
-%setup  -q
+%setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
-
-cp %{SOURCE2} po/pl.po
-echo 'pl' >> po/LINGUAS
 
 %build
 %{__gettextize}
@@ -116,8 +110,8 @@ echo 'pl' >> po/LINGUAS
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%configure \
-	--enable-nls
+%configure
+
 %{__make}
 
 %install
@@ -145,7 +139,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README FUTURES LIMITATIONS NEWS PROBLEMS
 %doc README_d/README.linux POSIX.STD
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/gawk
+%attr(755,root,root) %{_bindir}/igawk
+%attr(755,root,root) %{_bindir}/pgawk*
 %{_mandir}/man1/*
 %lang(es) %{_mandir}/es/man1/*
 %lang(fr) %{_mandir}/fr/man1/*
