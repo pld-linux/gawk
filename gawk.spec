@@ -1,11 +1,13 @@
 Summary:	The GNU version of the awk text processing utility
 Summary(de):	Die GNU-Version des AWK-Textverarbeitungsutilitys
+Summary(es): Utilitarios GNU para manipulación de archivos texto
 Summary(fr):	Traitement de texte des utilitaires GNU
 Summary(pl):	Wersja GNU awk - narzêdzia do obróbki tekstów
 Summary(tr):	GNU araçlarý metin düzenleyici
+Summary(pt_BR): Utilitários GNU para manipulação arquivos texto
 Name:		gawk
 Version:	3.1.0
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
@@ -14,6 +16,7 @@ Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-newsecurity.patch
+Patch2:		%{name}-shutup.patch
 Requires:	mktemp
 Requires:	sed
 BuildRequires:	texinfo
@@ -38,6 +41,12 @@ Programmiersprache, um Textmuster zu suchen, und neu zu formatieren.
 Gawk ist kompatibel zu der Bell Labs research-Version von awk, und ist
 fast kompatibel zum 1993 POSIX 1003.2-awk-Standard.
 
+%description -l es
+Este es el GNU Awk. Debe ser compatible con la versión de pesquisa
+de awk del Bell Labs. Es casi completamente vinculado con el padrón
+1993 POSIX 1003.2 para awk. Gawk puede ser usado para procesar
+archivos texto y se considera una herramienta padrón del Linux.
+
 %description -l fr
 awk de GNU, compatible vers le haut avec les versions awk des Bell
 Labs. Il est presque totalement conforme au standard 1993 POSIX 1003.2
@@ -56,6 +65,12 @@ Gawk (GNU awk) jest zaawansowanym jêzykiem skryptowym, doskonale
 nadaj±cym siê do obróbki plików tekstowych. Jest to jedno z
 podstawowych narzêdzi systemu Linux.
 
+%description -l pt_BR
+Este é o GNU Awk. Ele deve ser compatível com a versão de pesquisa de
+awk do Bell Labs. Ele é quase completamente vinculado com o padrão
+1993 POSIX 1003.2 para awk. Gawk pode ser usado para processar
+arquivos texto e é considerado uma ferramenta padrão do Linux.
+
 %description -l tr
 Gawk metin dosyalarýný iþlemek için kullanýlan standart Linux
 Araçlarýndan biridir.
@@ -64,6 +79,7 @@ Araçlarýndan biridir.
 %setup  -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %configure2_13 \
