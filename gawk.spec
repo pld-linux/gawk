@@ -9,14 +9,14 @@ Summary(ru):	GNU версия утилиты обработки текстов awk
 Summary(tr):	GNU araГlarЩ metin dЭzenleyici
 Summary(uk):	GNU верс╕я утил╕ти обробки текст╕в awk
 Name:		gawk
-Version:	3.1.2
-Release:	2
+Version:	3.1.3
+Release:	1
 License:	GPL
 Group:		Applications/Text
-Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5: 6d14f3c95669ace8c6aee2a96ba4eed7
+Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.bz2
+# Source0-md5:	a116eec17e7ba085febb74c7758823bd
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
-# Source1-md5: 80753d75be0f469f70e8c90e75121a9c
+# Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Source2:	%{name}-pl.po
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
@@ -110,8 +110,8 @@ echo 'pl' >> po/LINGUAS
 
 %build
 %{__gettextize}
-%{__aclocal}
-%{__autoconf} -I m4
+%{__aclocal} -I m4
+%{__autoconf}
 %{__autoheader}
 %{__automake}
 %configure \
