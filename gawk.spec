@@ -16,6 +16,7 @@ Patch2:		gawk-mktemp.patch
 Patch3:		gawk-DESTDIR.patch
 Requires:	mktemp
 Requires:	sed
+Prereq:		/usr/sbin/fix-info-dir
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %define		_libexecdir	%{_prefix}/lib
@@ -89,12 +90,10 @@ gzip -9f $RPM_BUILD_ROOT{%{_infodir}/gawk.info*,%{_mandir}/man1/*} \
 	README_d/README.linux POSIX.STD
 
 %post
-/sbin/install-info %{_infodir}/gawk.info.gz /etc/info-dir
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %preun
-if [ "$1" = "0" ]; then
-	/sbin/install-info --delete %{_infodir}/gawk.info.gz /etc/info-dir
-fi
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
