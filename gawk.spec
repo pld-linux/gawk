@@ -83,7 +83,7 @@ make
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_bindir}
 
-make install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT 
 
 rm -f $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
