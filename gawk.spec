@@ -105,43 +105,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/awk
 
 %changelog
-* Mon Apr 19 1999 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
-  [3.0.3-8]
-- recompiles on new rpm.
-
-* Wed Apr 14 1999 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
-  [3.0.3-7]
-- removed man group from man pages,
-- gzipping %doc.
-
-* Sat Jan 02 1999 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
-  [3.0.3-5]
-- added %post, %preun with {un}registering gawk info
-  pages (added gawk-info.patch),
-- added gzipping man pages,
-- added using LDFLAGS="-s" to ./configure enviroment.
-
-* Mon Oct 26 1998 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
-  [3.0.3-4]
-- awk(1) man page is now maked as nroff include to gawk(1) instead
-  making sym link to gawk.1 (this allow compress man pages in future),
-- removed INSTALL and COPYING from %doc (copyright statment is in Copyright
-  field).
-
-* Sun Jul 19 1998 Wojtek 奸usarczyk <wojtek@shadow.eu.org>
-- added pl translation,
-- added -q %setup parameter,
-- buildroot canged to /tmp/%{name}-%{version}-root.
-
-* Wed May 06 1998 Cristian Gafton <gafton@redhat.com>
-- don't package %{_infodir}/dir
-
-* Fri Apr 24 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Wed Apr 08 1998 Cristian Gafton <gafton@redhat.com>
-- upgraded to 3.0.3
-- added documentation and buildroot
-
-* Mon Jun 02 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
+* Wed May 26 1999 Tomasz K這czko <kloczek@rudy.mif.pg.gda.pl>
+  [3.0.3-9]
+- based on RH spec,
+- spec rewrited by PLD team,
+- added patch with tmp race fix (from Debian),
+- pl translation by Wojtek 奸usarczyk <wojtek@shadow.eu.org>.
