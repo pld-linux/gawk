@@ -1,16 +1,15 @@
-Summary:	GNU utilities text processor.
-Summary(de):	GNU-Utilities Text-Prozessor
+Summary:	The GNU version of the awk text processing utility
+Summary(de):	Die GNU-Version des AWK-Textverarbeitungsutilitys
 Summary(fr):	Traitement de texte des utilitaires GNU
-Summary(pl):	Narzêdzia do obróbki plików tekstowych z GNU
+Summary(pl):	Wersja GNU awk - narzêdzia do obróbki tekstów
 Summary(tr):	GNU araçlarý metin düzenleyici
 Name:		gawk
-Version:	3.0.3
-Release:	10
+Version:	3.0.4
+Release:	2
 Copyright:	GPL
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
-Source1:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}-ps.tar.gz
 Patch0:		gawk-unaligned.patch
 Patch1:		gawk-info.patch
 Patch2:		gawk-mktemp.patch
@@ -24,19 +23,23 @@ Buildroot:	/tmp/%{name}-%{version}-root
 %define		_exec_prefix	/
 
 %description
-This is GNU Awk. It should be upwardly compatible with the Bell Labs
-research version of awk.  It is almost completely compliant with the
-1993 POSIX 1003.2 standard for awk.
+The gawk packages contains the GNU version of awk, a text processing
+utility. Awk interprets a special-purpose programming language to do quick
+and easy text pattern matching and reformatting jobs. Gawk should be
+upwardly compatible with the Bell Labs research version of awk and is almost
+completely compliant with the 1993 POSIX 1003.2 standard for awk.
 
-Gawk can be used to process text files and is considered a standard
-Linux tool.
-
+Install the gawk package if you need a text processing utility. Gawk is
+considered to be a standard Linux tool for processing text.
+                                                                                                              
 %description -l de
-Dies ist GNU Awk. Es sollte aufwärtskompatibel mit der Bell Labs-
-Version von awk sein. Es ist fast vollständig konform mit dem 1993 
-POSIX 1003.2-Standard für awk.
-Gawk läßt sich zum Verarbeiten von Textdateien einsetzen und gilt als
-ein Standard-Linux-Tool.
+Das gawk-Paket enthält die GNU-Version von awk, einem
+Textverarbeitungs-Utility. Awk interpretiert eine spezielle
+Programmiersprache, um Textmuster zu suchen, und neu zu formatieren. Gawk
+ist kompatibel zu der Bell Labs research-Version von awk, und ist fast
+kompatibel zum 1993 POSIX 1003.2-awk-Standard.
+
+Installieren Sie gawk, wenn Sie ein Textverarbeitungsutility brauchen.
 
 %description -l fr
 awk de GNU, compatible vers le haut avec les versions awk des Bell Labs.
@@ -59,7 +62,7 @@ Gawk metin dosyalarýný iþlemek için kullanýlan standart Linux araçlarýndan
 biridir.
 
 %prep
-%setup -q -b 1
+%setup  -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -83,7 +86,7 @@ ln -sf %{_bindir}/gawk $RPM_BUILD_ROOT/usr/bin/gawk
 
 gzip -9f $RPM_BUILD_ROOT{%{_infodir}/gawk.info*,%{_mandir}/man1/*} \
 	README ACKNOWLEDGMENT FUTURES LIMITATIONS NEWS PORTS \
-	README_d/README.linux POSIX.STD doc/gawk.ps doc/awkcard.ps
+	README_d/README.linux POSIX.STD
 
 %post
 /sbin/install-info %{_infodir}/gawk.info.gz /etc/info-dir
