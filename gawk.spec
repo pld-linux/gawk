@@ -92,7 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) /usr/bin/*
 /usr/man/man1/*
 /usr/info/*info*
-%attr(755,root,root,755) /usr/libexec/awk
+%attr(755,root,root) /usr/libexec/awk
 /usr/share/awk
 
 %changelog
