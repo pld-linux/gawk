@@ -28,7 +28,7 @@ diff -Nru gawk-3.1.3.orig/doc/gawkinet.texi gawk-3.1.3/doc/gawkinet.texi
 +@dircategory Programming languages:
  @direntry
 -* Gawkinet: (gawkinet).         TCP/IP Internetworking With `gawk'.
-+* Gawkinet: (gawkinet).			TCP/IP Internetworking With `gawk'.
++* Gawkinet: (gawkinet).			TCP/IP Internetworking With `gawk'
  @end direntry
  
  @iftex
