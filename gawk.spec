@@ -4,18 +4,17 @@ Summary(fr):	Traitement de texte des utilitaires GNU
 Summary(pl):	Wersja GNU awk - narzêdzia do obróbki tekstów
 Summary(tr):	GNU araçlarý metin düzenleyici
 Name:		gawk
-Version:	3.0.4
-Release:	7
+Version:	3.0.6
+Release:	1
 License:	GPL
 Group:		Utilities/Text
 Group(fr):	Utilitaires/Texte
 Group(pl):	Narzêdzia/Tekst
-Source0:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 Patch0:		gawk-unaligned.patch
 Patch1:		gawk-info.patch
 Patch2:		gawk-mktemp.patch
 Patch3:		gawk-DESTDIR.patch
-Patch4:		gawk-zero_flag.patch
 Requires:	mktemp
 Requires:	sed
 BuildRequires:	texinfo
@@ -72,8 +71,7 @@ Araçlarýndan biridir.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p0
+%patch3 -p1 -b .wiget
 
 %build
 LDFLAGS="-s"; export LDFLAGS
@@ -104,7 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *gz README_d/README.linux.gz doc/*.ps.gz
+%doc *gz README_d/README.linux.gz 
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %{_infodir}/*info*
