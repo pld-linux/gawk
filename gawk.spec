@@ -4,18 +4,16 @@ Summary(fr):	Traitement de texte des utilitaires GNU
 Summary(pl):	Wersja GNU awk - narzêdzia do obróbki tekstów
 Summary(tr):	GNU araçlarý metin düzenleyici
 Name:		gawk
-Version:	3.0.6
-Release:	3
+Version:	3.1.0
+Release:	2
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
 Group(fr):	Utilitaires/Texte
 Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
-Patch0:		%{name}-unaligned.patch
-Patch1:		%{name}-info.patch
-Patch2:		%{name}-mktemp.patch
-Patch3:		%{name}-DESTDIR.patch
+Patch0:		%{name}-info.patch
+Patch1:		%{name}-newsecurity.patch
 Requires:	mktemp
 Requires:	sed
 BuildRequires:	texinfo
@@ -66,11 +64,10 @@ Araçlarýndan biridir.
 %setup  -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
-%patch3 -p1 -b .wiget
 
 %build
-%configure
+%configure \
+	--enable-nls
 %{__make}
 
 %install
@@ -82,8 +79,10 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 
 rm -f $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
 
-gzip -9nf README ACKNOWLEDGMENT FUTURES LIMITATIONS NEWS PORTS \
+gzip -9nf AUTHORS README FUTURES LIMITATIONS NEWS PROBLEMS \
 	README_d/README.linux POSIX.STD
+
+%find_lang %{name}
 
 %post
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
@@ -94,7 +93,7 @@ gzip -9nf README ACKNOWLEDGMENT FUTURES LIMITATIONS NEWS PORTS \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc *gz README_d/README.linux.gz 
 %attr(755,root,root) %{_bindir}/*
