@@ -90,6 +90,9 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 
 rm -f $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
 
+#install link to /usr/bin directory.
+(cd $RPM_BUILD_ROOT;install -d usr/bin;cd usr/bin;ln -s ../../bin/gawk gawk;ln -s ../../bin/gawk awk)
+
 gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/gawk.info*,%{_mandir}/man1/*} \
 	README ACKNOWLEDGMENT FUTURES LIMITATIONS NEWS PORTS \
 	README_d/README.linux POSIX.STD
@@ -107,6 +110,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *gz README_d/README.linux.gz doc/*.ps.gz
 %attr(755,root,root) %{_bindir}/*
+/usr/bin/awk
+/usr/bin/gawk
 %{_mandir}/man1/*
 %{_infodir}/*info*
 %attr(755,root,root) %{_libdir}/awk
