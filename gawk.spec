@@ -8,6 +8,7 @@ Version:	3.0.3
 Release:	8
 Copyright:	GPL
 Group:		Utilities/Text
+Group(pl):	Narzêdzia/Tekst
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
 Source1:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}-ps.tar.gz
 Patch0:		gawk-unaligned.patch
@@ -56,7 +57,7 @@ biridir.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure \
+./configure %{_target} \
 	--prefix=/usr
 make
 
