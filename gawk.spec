@@ -114,9 +114,6 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 
 rm -f $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
 
-gzip -9nf AUTHORS README FUTURES LIMITATIONS NEWS PROBLEMS \
-	README_d/README.linux POSIX.STD
-
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 
 %find_lang %{name}
@@ -132,7 +129,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *gz README_d/README.linux.gz
+%doc AUTHORS README FUTURES LIMITATIONS NEWS PROBLEMS \
+	README_d/README.linux POSIX.STD
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %lang(es) %{_mandir}/es/man1/*
