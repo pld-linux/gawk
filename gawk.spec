@@ -63,13 +63,13 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/bin
+install -d $RPM_BUILD_ROOT%{_bindir}
 
 make install prefix=$RPM_BUILD_ROOT/usr bindir=$RPM_BUILD_ROOT/bin
 
 echo ".so gawk.1" > $RPM_BUILD_ROOT%{_mandir}/man1/awk.1
-ln -sf /bin/gawk $RPM_BUILD_ROOT/usr/bin/awk 
-ln -sf /bin/gawk $RPM_BUILD_ROOT/usr/bin/gawk 
+ln -sf /bin/gawk $RPM_BUILD_ROOT%{_bindir}/awk 
+ln -sf /bin/gawk $RPM_BUILD_ROOT%{_bindir}/gawk 
 
 gzip -9f $RPM_BUILD_ROOT/usr/{info/gawk.info*,man/man1/*} \
 	README ACKNOWLEDGMENT FUTURES LIMITATIONS NEWS PORTS \
@@ -90,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *gz README_d/README.linux.gz doc/*.ps.gz
 %attr(755,root,root) /bin/*
-%attr(755,root,root) /usr/bin/*
+%attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %{_infodir}/*info*
 %attr(755,root,root) /usr/libexec/awk
