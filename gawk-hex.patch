@@ -1,0 +1,12 @@
+--- builtin.c-old	Thu Mar 14 22:11:35 2002
++++ builtin.c	Thu Mar 14 22:11:54 2002
+@@ -2277,8 +2277,7 @@
+ 	short val;
+ 	char *start = str;
+ 
+-	if (*str == '0' && (str[1] == 'x' || str[1] == 'X')) {
+-		assert(len > 2);
++	if (*str == '0' && (str[1] == 'x' || str[1] == 'X') && len > 2) {
+ 
+ 		for (str += 2, len -= 2; len > 0; len--, str++) {
+ 			switch (*str) {
