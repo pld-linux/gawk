@@ -5,7 +5,7 @@ Summary(pl):	Wersja GNU awk - narzêdzia do obróbki tekstów
 Summary(tr):	GNU araçlarý metin düzenleyici
 Name:		gawk
 Version:	3.0.4
-Release:	3
+Release:	4
 Copyright:	GPL
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
@@ -21,7 +21,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_prefix}/lib
 %define		_libdir		%{_prefix}/lib
-%define		_exec_prefix	/
 
 %description
 The gawk packages contains the GNU version of awk, a text processing
@@ -82,7 +81,6 @@ make install \
 	DESTDIR=$RPM_BUILD_ROOT 
 
 echo ".so gawk.1" > $RPM_BUILD_ROOT%{_mandir}/man1/awk.1
-ln -sf %{_bindir}/gawk $RPM_BUILD_ROOT/usr/bin/awk 
 ln -sf %{_bindir}/gawk $RPM_BUILD_ROOT/usr/bin/gawk 
 
 gzip -9f $RPM_BUILD_ROOT{%{_infodir}/gawk.info*,%{_mandir}/man1/*} \
