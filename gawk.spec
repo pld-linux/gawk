@@ -105,11 +105,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_infodir}/*info*
 %attr(755,root,root) %{_libdir}/awk
 %{_datadir}/awk
-
-%changelog
-* Wed May 26 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [3.0.3-9]
-- based on RH spec,
-- spec rewrited by PLD team,
-- added patch with tmp race fix (from Debian),
-- pl translation by Wojtek ¦lusarczyk <wojtek@shadow.eu.org>.
