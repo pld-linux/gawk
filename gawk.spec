@@ -22,7 +22,7 @@ Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-pmake.patch
 Patch3:		%{name}-it_po.patch
 BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1.7
+BuildRequires:	automake >= 1:1.7
 BuildRequires:	texinfo >= 4.3
 BuildRequires:	gettext-devel >= 0.14.1
 Requires:	mktemp
