@@ -1,7 +1,7 @@
-diff -ur gawk-3.0.3.old/Makefile.in gawk-3.0.3/Makefile.in
---- gawk-3.0.3.old/Makefile.in	Tue May 13 18:37:41 1997
-+++ gawk-3.0.3/Makefile.in	Tue May 25 20:06:57 1999
-@@ -54,6 +54,8 @@
+diff -Nru gawk-3.0.4/Makefile.in gawk-3.0.4.new/Makefile.in
+--- gawk-3.0.4/Makefile.in	Wed Jun  9 10:36:30 1999
++++ gawk-3.0.4.new/Makefile.in	Wed Aug 18 23:57:21 1999
+@@ -55,6 +55,8 @@
  datadir = @datadir@/awk
  libexecdir = @libexecdir@/awk
  
@@ -10,7 +10,7 @@ diff -ur gawk-3.0.3.old/Makefile.in gawk-3.0.3/Makefile.in
  DEFPATH = ".:$(datadir)"
  
  SHELL = /bin/sh
-@@ -173,11 +175,11 @@
+@@ -175,11 +177,11 @@
  alloca.o:	alloca.c
  
  install:	gawk info installdirs
@@ -26,7 +26,7 @@ diff -ur gawk-3.0.3.old/Makefile.in gawk-3.0.3/Makefile.in
  	if [ ! -f awk ]; \
  	then	$(LN_S) gawk awk; \
  	fi; exit 0)
-@@ -185,8 +187,9 @@
+@@ -187,8 +189,9 @@
  	cd awklib && $(MAKE) install
  
  installdirs: mkinstalldirs
@@ -38,9 +38,9 @@ diff -ur gawk-3.0.3.old/Makefile.in gawk-3.0.3/Makefile.in
  
  uninstall:
  	(cd $(bindir); \
-diff -ur gawk-3.0.3.old/awklib/Makefile.in gawk-3.0.3/awklib/Makefile.in
---- gawk-3.0.3.old/awklib/Makefile.in	Fri May  2 03:36:13 1997
-+++ gawk-3.0.3/awklib/Makefile.in	Tue May 25 20:09:14 1999
+diff -Nru gawk-3.0.4/awklib/Makefile.in gawk-3.0.4.new/awklib/Makefile.in
+--- gawk-3.0.4/awklib/Makefile.in	Wed Oct  7 22:33:20 1998
++++ gawk-3.0.4.new/awklib/Makefile.in	Wed Aug 18 23:57:21 1999
 @@ -73,13 +73,13 @@
  	sed 's;/usr/local/libexec/awk;$(libexecdir);' < groupawk.in) > group.awk
  
@@ -58,37 +58,41 @@ diff -ur gawk-3.0.3.old/awklib/Makefile.in gawk-3.0.3/awklib/Makefile.in
  	done
  
  # libexecdir and datadir are removed in the top level Makefile's uninstall
-diff -ur gawk-3.0.3.old/doc/Makefile.in gawk-3.0.3/doc/Makefile.in
---- gawk-3.0.3.old/doc/Makefile.in	Thu May 15 03:36:15 1997
-+++ gawk-3.0.3/doc/Makefile.in	Tue May 25 20:16:40 1999
-@@ -69,23 +69,23 @@
+diff -Nru gawk-3.0.4/doc/Makefile.in gawk-3.0.4.new/doc/Makefile.in
+--- gawk-3.0.4/doc/Makefile.in	Wed Apr 28 16:21:56 1999
++++ gawk-3.0.4.new/doc/Makefile.in	Thu Aug 19 00:00:15 1999
+@@ -69,9 +69,9 @@
  
  all: $(DOCS) info
  
 -install: $(mandir)/gawk$(manext) $(mandir)/igawk$(manext) $(infodir)/gawk.info
 +install: $(DESTDIR)$(mandir)/gawk$(manext) $(DESTDIR)$(mandir)/igawk$(manext) $(DESTDIR)$(infodir)/gawk.info
  
--$(infodir)/gawk.info: gawk.info
-+$(DESTDIR)$(infodir)/gawk.info: gawk.info
+-$(infodir)/gawk.info::
++$(DESTDIR)$(infodir)/gawk.info::
  	-if test -f gawk.info; then d=.; \
  	else d=$(srcdir); fi; \
+ 	if    [ -f $(infodir)/dir -a -f $(infodir)/gawk.info ] \
+@@ -80,17 +80,17 @@
+ 		exit 0; \
+ 	fi; \
  	for i in $$d/gawk.info*; do \
--		$(INSTALL_DATA) $$i $(infodir)/$i ; \
-+		$(INSTALL_DATA) $$i $(DESTDIR)$(infodir)/$i ; \
+-		$(INSTALL_DATA) $$i $(infodir)/$$i ; \
++		$(INSTALL_DATA) $$i $(DESTDIR)$(infodir)/$$i ; \
  	done; \
  	if $(SHELL) -c 'install-info --version' > /dev/null 2>&1 ; \
 -	then install-info --info-dir=$(infodir) gawk.info ; \
 +	then install-info --info-dir=$(DESTDIR)$(infodir) gawk.info ; \
  	else true ; fi; exit 0
  
--$(mandir)/gawk$(manext): gawk.1
+-$(mandir)/gawk$(manext):: gawk.1
 -	$(INSTALL_DATA) $(srcdir)/gawk.1 $(mandir)/gawk$(manext)
-+$(DESTDIR)$(mandir)/gawk$(manext): gawk.1
++$(DESTDIR)$(mandir)/gawk$(manext):: gawk.1
 +	$(INSTALL_DATA) $(srcdir)/gawk.1 $(DESTDIR)$(mandir)/gawk$(manext)
  
--$(mandir)/igawk$(manext): igawk.1
+-$(mandir)/igawk$(manext):: igawk.1
 -	$(INSTALL_DATA) $(srcdir)/igawk.1 $(mandir)/igawk$(manext)
-+$(DESTDIR)$(mandir)/igawk$(manext): igawk.1
++$(DESTDIR)$(mandir)/igawk$(manext):: igawk.1
 +	$(INSTALL_DATA) $(srcdir)/igawk.1 $(DESTDIR)$(mandir)/igawk$(manext)
  
  uninstall:
