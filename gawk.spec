@@ -5,7 +5,7 @@ Summary(pl):	Wersja GNU awk - narzêdzia do obróbki tekstów
 Summary(tr):	GNU araçlarý metin düzenleyici
 Name:		gawk
 Version:	3.0.4
-Release:	5
+Release:	6
 License:	GPL
 Group:		Utilities/Text
 Group(fr):	Utilitaires/Texte
@@ -20,6 +20,7 @@ Requires:	mktemp
 Requires:	sed
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	gawk-doc
 
 %define		_libexecdir	%{_prefix}/lib
 %define		_libdir		%{_prefix}/lib
