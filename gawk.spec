@@ -5,7 +5,7 @@ Summary(pl):	Narzêdzia do obróbki plików tekstowych z GNU
 Summary(tr):	GNU araçlarý metin düzenleyici
 Name:		gawk
 Version:	3.0.3
-Release:	7
+Release:	8
 Copyright:	GPL
 Group:		Utilities/Text
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
@@ -96,6 +96,10 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/awk
 
 %changelog
+* Mon Apr 19 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [3.0.3-8]
+- recompiles on new rpm.
+
 * Wed Apr 14 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [3.0.3-7]
 - removed man group from man pages,
