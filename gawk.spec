@@ -5,11 +5,12 @@ Summary(pl):	Wersja GNU awk - narzêdzia do obróbki tekstów
 Summary(tr):	GNU araçlarý metin düzenleyici
 Name:		gawk
 Version:	3.0.6
-Release:	1
+Release:	2
 License:	GPL
-Group:		Utilities/Text
-Group(pl):	Narzêdzia/Tekst
+Group:		Applications/Text
+Group(de):	Applikationen/Text
 Group(fr):	Utilitaires/Texte
+Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-unaligned.patch
 Patch1:		%{name}-info.patch
@@ -32,17 +33,12 @@ should be upwardly compatible with the Bell Labs research version of
 awk and is almost completely compliant with the 1993 POSIX 1003.2
 standard for awk.
 
-Install the gawk package if you need a text processing utility. Gawk
-is considered to be a standard Linux tool for processing text.
-
 %description -l de
 Das gawk-Paket enthält die GNU-Version von awk, einem
 Textverarbeitungs-Utility. Awk interpretiert eine spezielle
 Programmiersprache, um Textmuster zu suchen, und neu zu formatieren.
 Gawk ist kompatibel zu der Bell Labs research-Version von awk, und ist
 fast kompatibel zum 1993 POSIX 1003.2-awk-Standard.
-
-Installieren Sie gawk, wenn Sie ein Textverarbeitungsutility brauchen.
 
 %description -l fr
 awk de GNU, compatible vers le haut avec les versions awk des Bell
@@ -86,8 +82,7 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 
 rm -f $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
 
-gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/gawk.info*,%{_mandir}/man1/*} \
-	README ACKNOWLEDGMENT FUTURES LIMITATIONS NEWS PORTS \
+gzip -9nf README ACKNOWLEDGMENT FUTURES LIMITATIONS NEWS PORTS \
 	README_d/README.linux POSIX.STD
 
 %post
