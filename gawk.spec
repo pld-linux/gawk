@@ -5,12 +5,13 @@ Summary(pl): Narzêdzia do obróbki plików tekstowych z GNU
 Summary(tr): GNU araçlarý metin düzenleyici
 Name:        gawk
 Version:     3.0.3
-Release:     4
+Release:     5
 Copyright:   GPL
 Group:       Utilities/Text
 Source0:     ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
 Source1:     ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}-ps.tar.gz
-Patch:       gawk-3.0-unaligned.patch
+Patch0:      gawk-unaligned.patch
+Patch1:      gawk-info.patch
 Buildroot:   /tmp/%{name}-%{version}-root
 
 %description
@@ -50,10 +51,12 @@ biridir.
 
 %prep
 %setup -q -b 1
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" ./configure \
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+./configure \
 	--prefix=/usr
 make
 
@@ -63,12 +66,19 @@ install -d $RPM_BUILD_ROOT/usr/bin
 
 make install prefix=$RPM_BUILD_ROOT/usr bindir=$RPM_BUILD_ROOT/bin
 
-strip $RPM_BUILD_ROOT/bin/gawk
-gzip -9f $RPM_BUILD_ROOT/usr/info/gawk.info*
-
 echo ".so gawk.1" > $RPM_BUILD_ROOT/usr/man/man1/awk.1
 ln -sf /bin/gawk $RPM_BUILD_ROOT/usr/bin/awk 
 ln -sf /bin/gawk $RPM_BUILD_ROOT/usr/bin/gawk 
+
+gzip -9f $RPM_BUILD_ROOT/usr/{info/gawk.info*,man/man1/*}
+
+%post
+/sbin/install-info /usr/info/gawk.info.gz /etc/info-dir
+
+%preun
+if [ $1 = 0 ]; then
+	/sbin/install-info --delete /usr/info/gawk.info.gz /etc/info-dir
+fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -85,6 +95,13 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/awk
 
 %changelog
+* Sat Jan 02 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [3.0.3-5]
+- added %post, %preun with {un}registering gawk info
+  pages (added gawk-info.patch),
+- added gzipping man pages,
+- added using LDFLAGS="-s" to ./configure enviroment.
+
 * Mon Oct 26 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [3.0.3-4]
 - awk(1) man page is now maked as nroff include to gawk(1) instead
