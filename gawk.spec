@@ -7,13 +7,14 @@ Summary(tr):	GNU araçlarý metin düzenleyici
 Summary(pt_BR): Utilitários GNU para manipulação arquivos texto
 Name:		gawk
 Version:	3.1.0
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
 Group(fr):	Utilitaires/Texte
 Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
+Source1:	%{name}-non-english-man-pages.tar.bz2
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-newsecurity.patch
 Patch2:		%{name}-shutup.patch
@@ -98,6 +99,8 @@ rm -f $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
 gzip -9nf AUTHORS README FUTURES LIMITATIONS NEWS PROBLEMS \
 	README_d/README.linux POSIX.STD
 
+bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+
 %find_lang %{name}
 
 %post
@@ -114,6 +117,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc *gz README_d/README.linux.gz 
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
+%lang(es) %{_mandir}/es/man1/*
+%lang(fr) %{_mandir}/fr/man1/*
+%lang(it) %{_mandir}/it/man1/*
+%lang(ja) %{_mandir}/ja/man1/*
+%lang(pl) %{_mandir}/pl/man1/*
 %{_infodir}/*info*
 %attr(755,root,root) %{_libdir}/awk
 %{_datadir}/awk
