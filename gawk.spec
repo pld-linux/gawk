@@ -18,7 +18,7 @@ Requires:	mktemp
 Requires:	sed
 Provides:	awk
 Prereq:		/usr/sbin/fix-info-dir
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_prefix}/lib
 %define		_libdir		%{_prefix}/lib
