@@ -83,7 +83,7 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 make install \
 	DESTDIR=$RPM_BUILD_ROOT 
 
-ln -sf %{_bindir}/gawk $RPM_BUILD_ROOT%{_bindir}/gawk 
+rm -f $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
 
 gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/gawk.info*,%{_mandir}/man1/*} \
 	README ACKNOWLEDGMENT FUTURES LIMITATIONS NEWS PORTS \
