@@ -84,7 +84,6 @@ install -d $RPM_BUILD_ROOT%{_bindir}
 make install \
 	DESTDIR=$RPM_BUILD_ROOT 
 
-echo ".so gawk.1" > $RPM_BUILD_ROOT%{_mandir}/man1/awk.1
 ln -sf %{_bindir}/gawk $RPM_BUILD_ROOT%{_bindir}/gawk 
 
 gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/gawk.info*,%{_mandir}/man1/*} \
