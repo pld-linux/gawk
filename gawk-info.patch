@@ -1,34 +1,34 @@
-diff -Nur gawk-3.1.0.orig/doc/gawk.texi gawk-3.1.0/doc/gawk.texi
---- gawk-3.1.0.orig/doc/gawk.texi	Sat Aug  4 12:49:44 2001
-+++ gawk-3.1.0/doc/gawk.texi	Sat Aug  4 12:50:58 2001
+diff -Nru gawk-3.1.2.orig/doc/gawk.texi gawk-3.1.2/doc/gawk.texi
+--- gawk-3.1.2.orig/doc/gawk.texi	Wed Mar 19 12:41:28 2003
++++ gawk-3.1.2/doc/gawk.texi	Fri Apr  4 13:08:14 2003
 @@ -4,13 +4,9 @@
  @settitle The GNU Awk User's Guide
  @c %**end of header (This is for running Texinfo on a region.)
  
--@dircategory GNU Packages
+-@dircategory Text creation and manipulation
 +@dircategory Programming Languages:
  @direntry
--* Gawk: (gawk).           A text scanning and processing language.
+-* Gawk: (gawk).                 A text scanning and processing language.
 -@end direntry
 -@dircategory Individual utilities
 -@direntry
--* awk: (gawk)Invoking gawk.           Text scanning and processing.
-+* Gawk: (gawk).				A text scanning and processing language.
+-* awk: (gawk)Invoking gawk.                     Text scanning and processing.
++* Gawk: (gawk).                                      A text scanning and processing language.
  @end direntry
  
  @c @set xref-automatic-section-title
-diff -Nur gawk-3.1.0.orig/doc/gawkinet.texi gawk-3.1.0/doc/gawkinet.texi
---- gawk-3.1.0.orig/doc/gawkinet.texi	Sun May 13 17:18:25 2001
-+++ gawk-3.1.0/doc/gawkinet.texi	Sat Aug  4 12:52:11 2001
-@@ -6,9 +6,9 @@
+diff -Nru gawk-3.1.2.orig/doc/gawkinet.texi gawk-3.1.2/doc/gawkinet.texi
+--- gawk-3.1.2.orig/doc/gawkinet.texi	Wed Mar 19 12:54:56 2003
++++ gawk-3.1.2/doc/gawkinet.texi	Fri Apr  4 13:09:07 2003
+@@ -5,9 +5,9 @@
+ @c %**end of header (This is for running Texinfo on a region.)
+ @c FIXME: web vs. Web
  
- @c inside ifinfo for older versions of texinfo.tex
- @ifinfo
--@dircategory GNU Packages
+-@dircategory Text creation and manipulation
 +@dircategory Programming Languages:
  @direntry
--* Gawkinet: (gawkinet).    TCP/IP Internetworking With @command{gawk}.
-+* Gawkinet: (gawkinet).			TCP/IP Internetworking With @command{gawk}.
+-* Gawkinet: (gawkinet).         TCP/IP Internetworking With `gawk'.
++* Gawkinet: (gawkinet).                             TCP/IP Internetworking With `gawk'.
  @end direntry
- @end ifinfo
  
+ @iftex
