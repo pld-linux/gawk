@@ -1,16 +1,15 @@
-diff -Nru gawk-3.0.3/doc/gawk.texi gawk-3.0.3.new/doc/gawk.texi
---- gawk-3.0.3/doc/gawk.texi	Fri Mar  7 03:34:52 1997
-+++ gawk-3.0.3.new/doc/gawk.texi	Sat Jan  2 21:21:28 1999
-@@ -7,9 +7,10 @@
+diff -Nru gawk-3.0.6/doc/gawk.texi gawk-3.0.6.new/doc/gawk.texi
+--- gawk-3.0.6/doc/gawk.texi	Tue Aug  8 00:57:43 2000
++++ gawk-3.0.6.new/doc/gawk.texi	Mon Sep  4 20:11:52 2000
+@@ -7,9 +7,9 @@
  @c inside ifinfo for older versions of texinfo.tex
  @ifinfo
  @c I hope this is the right category
 -@dircategory Programming Languages
 +@dircategory Programming Languages:
  @direntry
--* Gawk: (gawk.info).           A Text Scanning and Processing Language.
-+* Gawk: (gawk).				A Text Scanning 
-+						and Processing Language
+-* Gawk: (gawk).           A Text Scanning and Processing Language.
++* Gawk: (gawk).				A Text Scanning and Processing Language
  @end direntry
  @end ifinfo
  
