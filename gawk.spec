@@ -15,6 +15,8 @@ Patch0:		gawk-unaligned.patch
 Patch1:		gawk-info.patch
 Patch2:		gawk-mktemp.patch
 Patch3:		gawk-DESTDIR.patch
+Requires:	mktemp
+Requires:	sed
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %define		_libexecdir	%{_prefix}/lib
