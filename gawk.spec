@@ -5,7 +5,7 @@ Summary(pl):	Wersja GNU awk - narzêdzia do obróbki tekstów
 Summary(tr):	GNU araçlarý metin düzenleyici
 Name:		gawk
 Version:	3.1.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
@@ -66,7 +66,7 @@ Araçlarýndan biridir.
 %patch1 -p1
 
 %build
-%configure \
+%configure2_13 \
 	--enable-nls
 %{__make}
 
