@@ -3,11 +3,13 @@ Summary(de):	Die GNU-Version des AWK-Textverarbeitungsutilitys
 Summary(es):	Utilitarios GNU para manipulaciСn de archivos texto
 Summary(fr):	Traitement de texte des utilitaires GNU
 Summary(pl):	Wersja GNU awk - narzЙdzia do obrСbki tekstСw
-Summary(tr):	GNU araГlarЩ metin dЭzenleyici
 Summary(pt_BR):	UtilitАrios GNU para manipulaГЦo arquivos texto
+Summary(ru):	GNU версия утилиты обработки текстов awk
+Summary(tr):	GNU araГlarЩ metin dЭzenleyici
+Summary(uk):	GNU верс╕я утил╕ти обробки текст╕в awk
 Name:		gawk
 Version:	3.1.0
-Release:	5
+Release:	6
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
@@ -15,6 +17,7 @@ Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-newsecurity.patch
 Patch2:		%{name}-shutup.patch
+Patch3:		%{name}-hex.patch
 Requires:	mktemp
 Requires:	sed
 BuildRequires:	texinfo
@@ -69,15 +72,31 @@ awk do Bell Labs. Ele И quase completamente vinculado com o padrЦo
 1993 POSIX 1003.2 para awk. Gawk pode ser usado para processar
 arquivos texto e И considerado uma ferramenta padrЦo do Linux.
 
+%description -l ru
+Пакет gawk содержит GNU версию awk, утилиты обработки текстов. awk
+интерпретирует специализированный язык программирования для быстрого и
+легкого выполнения работ по сопоставлению с шаблонами и
+переформатированию текстов. Gawk должен быть совместим с версией awk
+от Bell Labs и практически полностью отвечает стандарту 1993 POSIX
+1003.2 на awk.
+
 %description -l tr
 Gawk metin dosyalarЩnЩ iЧlemek iГin kullanЩlan standart Linux
 AraГlarЩndan biridir.
+
+%description -l uk
+Пакет gawk м╕стить GNU верс╕ю awk, утил╕ти обробки текст╕в. awk
+╕нтерпрету╓ спец╕ал╕зовану мову програмування для швидкого та легкого
+виконання роб╕т по сп╕вставленню з шаблонами та переформатуванню
+текст╕в. Gawk ма╓ бути сум╕сним з верс╕╓ю awk в╕д Bell Labs ╕
+практично повн╕стю в╕дпов╕да╓ стандарту 1993 POSIX 1003.2 на awk.
 
 %prep
 %setup  -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %configure2_13 \
