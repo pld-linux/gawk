@@ -995,7 +995,7 @@ msgstr "b³êdne wyra¿enie w indeksie"
 #: awkgram.y:1033
 #, c-format
 msgid "fptr %x not in tokentab\n"
-msgstr "fptr %x nie znajduje siê w tokentab"
+msgstr "fptr %x nie znajduje siê w tokentab\n"
 
 #: awkgram.y:1068
 msgid "unexpected newline"
