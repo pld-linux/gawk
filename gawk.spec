@@ -23,7 +23,7 @@ Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-pmake.patch
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.7
-BuildRequires:	texinfo
+BuildRequires:	texinfo >= 4.3
 BuildRequires:	gettext-devel
 Requires:	mktemp
 Requires:	sed
@@ -120,7 +120,6 @@ echo 'pl' >> po/LINGUAS
 
 %install
 rm -rf $RPM_BUILD_ROOT
-#install -d $RPM_BUILD_ROOT%{_bindir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
