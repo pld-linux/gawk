@@ -4,8 +4,8 @@
  # Arnold Robbins, arnold@gnu.ai.mit.edu, Public Domain
  # July 1993
  
-+igs=`mktemp /tmp/ig.s.XXXXXX` || exit 1
-+ige=`mktemp /tmp/ig.e.XXXXXX` || exit 1
++igs=`mktemp ${TEMDIR:-/tmp}/ig.s.XXXXXX` || exit 1
++ige=`mktemp ${TEMDIR:-/tmp}/ig.e.XXXXXX` || exit 1
 +
  if [ "$1" = debug ]
  then
