@@ -1,18 +1,18 @@
-Summary:     GNU utilities text processor.
-Summary(de): GNU-Utilities Text-Prozessor
-Summary(fr): Traitement de texte des utilitaires GNU
-Summary(pl): Narzêdzia do obróbki plików tekstowych z GNU
-Summary(tr): GNU araçlarý metin düzenleyici
-Name:        gawk
-Version:     3.0.3
-Release:     5
-Copyright:   GPL
-Group:       Utilities/Text
-Source0:     ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
-Source1:     ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}-ps.tar.gz
-Patch0:      gawk-unaligned.patch
-Patch1:      gawk-info.patch
-Buildroot:   /tmp/%{name}-%{version}-root
+Summary:	GNU utilities text processor.
+Summary(de):	GNU-Utilities Text-Prozessor
+Summary(fr):	Traitement de texte des utilitaires GNU
+Summary(pl):	Narzêdzia do obróbki plików tekstowych z GNU
+Summary(tr):	GNU araçlarý metin düzenleyici
+Name:		gawk
+Version:	3.0.3
+Release:	7
+Copyright:	GPL
+Group:		Utilities/Text
+Source0:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
+Source1:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}-ps.tar.gz
+Patch0:		gawk-unaligned.patch
+Patch1:		gawk-info.patch
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 This is GNU Awk. It should be upwardly compatible with the Bell Labs
@@ -70,13 +70,15 @@ echo ".so gawk.1" > $RPM_BUILD_ROOT/usr/man/man1/awk.1
 ln -sf /bin/gawk $RPM_BUILD_ROOT/usr/bin/awk 
 ln -sf /bin/gawk $RPM_BUILD_ROOT/usr/bin/gawk 
 
-gzip -9f $RPM_BUILD_ROOT/usr/{info/gawk.info*,man/man1/*}
+gzip -9f $RPM_BUILD_ROOT/usr/{info/gawk.info*,man/man1/*} \
+	README ACKNOWLEDGMENT FUTURES LIMITATIONS NEWS PORTS \
+	README_d/README.linux POSIX.STD doc/gawk.ps doc/awkcard.ps
 
 %post
 /sbin/install-info /usr/info/gawk.info.gz /etc/info-dir
 
 %preun
-if [ $1 = 0 ]; then
+if [ "$1" = "0" ]; then
 	/sbin/install-info --delete /usr/info/gawk.info.gz /etc/info-dir
 fi
 
@@ -84,17 +86,21 @@ fi
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
-%doc README ACKNOWLEDGMENT FUTURES LIMITATIONS NEWS PORTS 
-%doc README_d POSIX.STD doc/gawk.ps doc/awkcard.ps
-%attr(755, root, root) /bin/*
-%attr(755, root, root) /usr/bin/*
-%attr(644, root,  man) /usr/man/man1/*
+%defattr(644,root,root,755)
+%doc *gz README_d/README.linux.gz doc/*.ps.gz
+%attr(755,root,root) /bin/*
+%attr(755,root,root) /usr/bin/*
+/usr/man/man1/*
 /usr/info/*info*
-%attr(755, root, root, 755) /usr/libexec/awk
+%attr(755,root,root,755) /usr/libexec/awk
 /usr/share/awk
 
 %changelog
+* Wed Apr 14 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [3.0.3-7]
+- removed man group from man pages,
+- gzipping %doc.
+
 * Sat Jan 02 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [3.0.3-5]
 - added %post, %preun with {un}registering gawk info
