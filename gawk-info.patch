@@ -1,15 +1,18 @@
-diff -Nru gawk-3.0.6/doc/gawk.texi gawk-3.0.6.new/doc/gawk.texi
---- gawk-3.0.6/doc/gawk.texi	Tue Aug  8 00:57:43 2000
-+++ gawk-3.0.6.new/doc/gawk.texi	Mon Sep  4 20:11:52 2000
-@@ -7,9 +7,9 @@
- @c inside ifinfo for older versions of texinfo.tex
- @ifinfo
- @c I hope this is the right category
--@dircategory Programming Languages
+--- gawk-3.1.0/doc/gawk.texi.orig	Sun May 13 17:38:13 2001
++++ gawk-3.1.0/doc/gawk.texi	Thu Jul  5 14:17:14 2001
+@@ -4,14 +4,10 @@
+ @settitle The GNU Awk User's Guide
+ @c %**end of header (This is for running Texinfo on a region.)
+ 
+-@dircategory GNU Packages
 +@dircategory Programming Languages:
  @direntry
--* Gawk: (gawk).           A Text Scanning and Processing Language.
-+* Gawk: (gawk).				A Text Scanning and Processing Language
+ * Gawk: (gawk).           A text scanning and processing language.
  @end direntry
- @end ifinfo
+-@dircategory Individual utilities
+-@direntry
+-* awk: (gawk)Invoking gawk.           Text scanning and processing.
+-@end direntry
+ 
+ @c @set xref-automatic-section-title
  
