@@ -16,6 +16,7 @@ Patch2:		gawk-mktemp.patch
 Patch3:		gawk-DESTDIR.patch
 Requires:	mktemp
 Requires:	sed
+Provides:	awk
 Prereq:		/usr/sbin/fix-info-dir
 Buildroot:	/tmp/%{name}-%{version}-root
 
