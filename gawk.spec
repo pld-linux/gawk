@@ -2,6 +2,7 @@ Summary:	The GNU version of the awk text processing utility
 Summary(de):	Die GNU-Version des AWK-Textverarbeitungsutilitys
 Summary(es):	Utilitarios GNU para manipulación de archivos texto
 Summary(fr):	Traitement de texte des utilitaires GNU
+Summary(ja):	GNU ¥Ğ¡¼¥¸¥ç¥ó¤Î awk ¥Æ¥­¥¹¥È½èÍı¥æ¡¼¥Æ¥£¥ê¥Æ¥£¡¼
 Summary(pl):	Wersja GNU awk - narzêdzia do obróbki tekstów
 Summary(pt_BR):	Utilitários GNU para manipulação arquivos texto
 Summary(ru):	GNU ×ÅÒÓÉÑ ÕÔÉÌÉÔÙ ÏÂÒÁÂÏÔËÉ ÔÅËÓÔÏ× awk
@@ -9,7 +10,7 @@ Summary(tr):	GNU araçları metin düzenleyici
 Summary(uk):	GNU ×ÅÒÓ¦Ñ ÕÔÉÌ¦ÔÉ ÏÂÒÏÂËÉ ÔÅËÓÔ¦× awk
 Name:		gawk
 Version:	3.1.1
-Release:	1
+Release:	3
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
@@ -52,8 +53,11 @@ awk de GNU, compatible vers le haut avec les versions awk des Bell
 Labs. Il est presque totalement conforme au standard 1993 POSIX 1003.2
 de awk.
 
-gawk sert à traiter les fichiers texte est est considéré comme un
-outil standard de Linux.
+%description -l ja
+gawk ¥Ñ¥Ã¥±¡¼¥¸¤Ï GNU ¥Ğ¡¼¥¸¥ç¥ó¤Î¡¢¥Æ¥­¥¹¥È½èÍı¥æ¡¼¥Æ¥£¥ê¥Æ¥£¡¼
+¤Ç¤¢¤ë awk ¤ò´Ş¤ó¤Ç¤¤¤Ş¤¹¡£awk ¤ÏÁÇÁá¤¯¡¢ÍÆ°×¤Ê¥Ñ¥¿¡¼¥ó¥Ş¥Ã¥Á¥ó¥°¤È
+À°·Á½èÍı¤ò¤¹¤ë¤¿¤á¤ÎÆÃ¼ì¤ÊÌÜÅª¤Î¸À¸ì¤Ç¤¹¡£gawk ¤Ï¥Ù¥ë¸¦¤Î¥Ğ¡¼¥¸¥ç¥ó¤Î
+awk ¤È¾å°Ì¸ß´¹¤Ç¡¢awk ¤Î 1993 POSIX 1003.2 É¸½à¤Ë´°Á´¤Ë¹çÃ×¤·¤Ş¤¹¡£
 
 %description -l pl
 Pakiet zawiera implementacjê GNU interpretera jêzyka awk, który
