@@ -129,8 +129,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS README FUTURES LIMITATIONS NEWS PROBLEMS \
-	README_d/README.linux POSIX.STD
+%doc AUTHORS README FUTURES LIMITATIONS NEWS PROBLEMS 
+%doc README_d/README.linux POSIX.STD
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %lang(es) %{_mandir}/es/man1/*
