@@ -24,6 +24,7 @@ Patch2:		%{name}-pmake.patch
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.7
 BuildRequires:	texinfo
+BuildRequires:	gettext-devel
 Requires:	mktemp
 Requires:	sed
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
