@@ -6,14 +6,16 @@ Summary(tr):	GNU araçlarý metin düzenleyici
 Name:		gawk
 Version:	3.0.4
 Release:	4
-Copyright:	GPL
+License:	GPL
 Group:		Utilities/Text
+Group(fr):	Utilitaires/Texte
 Group(pl):	Narzêdzia/Tekst
 Source0:	ftp://prep.ai.mit.edu/pub/gnu/%{name}-%{version}.tar.gz
 Patch0:		gawk-unaligned.patch
 Patch1:		gawk-info.patch
 Patch2:		gawk-mktemp.patch
 Patch3:		gawk-DESTDIR.patch
+Patch4:		gawk-zero_flag.patch
 Requires:	mktemp
 Requires:	sed
 Prereq:		/usr/sbin/fix-info-dir
@@ -27,12 +29,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 The gawk packages contains the GNU version of awk, a text processing
 utility. Awk interprets a special-purpose programming language to do quick
 and easy text pattern matching and reformatting jobs. Gawk should be
-upwardly compatible with the Bell Labs research version of awk and is almost
-completely compliant with the 1993 POSIX 1003.2 standard for awk.
+upwardly compatible with the Bell Labs research version of awk and is
+almost completely compliant with the 1993 POSIX 1003.2 standard for awk.
 
 Install the gawk package if you need a text processing utility. Gawk is
 considered to be a standard Linux tool for processing text.
-                                                                                                              
+
 %description -l de
 Das gawk-Paket enthält die GNU-Version von awk, einem
 Textverarbeitungs-Utility. Awk interpretiert eine spezielle
@@ -43,8 +45,8 @@ kompatibel zum 1993 POSIX 1003.2-awk-Standard.
 Installieren Sie gawk, wenn Sie ein Textverarbeitungsutility brauchen.
 
 %description -l fr
-awk de GNU, compatible vers le haut avec les versions awk des Bell Labs.
-Il est presque totalement conforme au standard 1993 POSIX 1003.2 de awk.
+awk de GNU, compatible vers le haut avec les versions awk des Bell Labs. Il
+est presque totalement conforme au standard 1993 POSIX 1003.2 de awk.
 
 gawk sert à traiter les fichiers texte est est considéré comme un outil
 standard de Linux.
@@ -68,6 +70,7 @@ biridir.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 LDFLAGS="-s"; export LDFLAGS
@@ -76,15 +79,15 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/bin
+install -d $RPM_BUILD_ROOT%{_bindir}
 
 make install \
 	DESTDIR=$RPM_BUILD_ROOT 
 
 echo ".so gawk.1" > $RPM_BUILD_ROOT%{_mandir}/man1/awk.1
-ln -sf %{_bindir}/gawk $RPM_BUILD_ROOT/usr/bin/gawk 
+ln -sf %{_bindir}/gawk $RPM_BUILD_ROOT%{_bindir}/gawk 
 
-gzip -9f $RPM_BUILD_ROOT{%{_infodir}/gawk.info*,%{_mandir}/man1/*} \
+gzip -9nf $RPM_BUILD_ROOT{%{_infodir}/gawk.info*,%{_mandir}/man1/*} \
 	README ACKNOWLEDGMENT FUTURES LIMITATIONS NEWS PORTS \
 	README_d/README.linux POSIX.STD
 
