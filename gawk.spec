@@ -31,8 +31,6 @@ Requires:	sed
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gawk-doc
 
-%define		_libexecdir	%{_prefix}/lib
-
 %description
 The gawk packages contains the GNU version of awk, a text processing
 utility. Awk interprets a special-purpose programming language to do
