@@ -67,7 +67,7 @@ install -d $RPM_BUILD_ROOT/usr/bin
 
 make install prefix=$RPM_BUILD_ROOT/usr bindir=$RPM_BUILD_ROOT/bin
 
-echo ".so gawk.1" > $RPM_BUILD_ROOT/usr/man/man1/awk.1
+echo ".so gawk.1" > $RPM_BUILD_ROOT%{_mandir}/man1/awk.1
 ln -sf /bin/gawk $RPM_BUILD_ROOT/usr/bin/awk 
 ln -sf /bin/gawk $RPM_BUILD_ROOT/usr/bin/gawk 
 
@@ -76,11 +76,11 @@ gzip -9f $RPM_BUILD_ROOT/usr/{info/gawk.info*,man/man1/*} \
 	README_d/README.linux POSIX.STD doc/gawk.ps doc/awkcard.ps
 
 %post
-/sbin/install-info /usr/info/gawk.info.gz /etc/info-dir
+/sbin/install-info %{_infodir}/gawk.info.gz /etc/info-dir
 
 %preun
 if [ "$1" = "0" ]; then
-	/sbin/install-info --delete /usr/info/gawk.info.gz /etc/info-dir
+	/sbin/install-info --delete %{_infodir}/gawk.info.gz /etc/info-dir
 fi
 
 %clean
@@ -91,8 +91,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc *gz README_d/README.linux.gz doc/*.ps.gz
 %attr(755,root,root) /bin/*
 %attr(755,root,root) /usr/bin/*
-/usr/man/man1/*
-/usr/info/*info*
+%{_mandir}/man1/*
+%{_infodir}/*info*
 %attr(755,root,root) /usr/libexec/awk
 /usr/share/awk
 
@@ -126,7 +126,7 @@ rm -rf $RPM_BUILD_ROOT
 - buildroot canged to /tmp/%{name}-%{version}-root.
 
 * Wed May 06 1998 Cristian Gafton <gafton@redhat.com>
-- don't package /usr/info/dir
+- don't package %{_infodir}/dir
 
 * Fri Apr 24 1998 Prospector System <bugs@redhat.com>
 - translations modified for de, fr, tr
