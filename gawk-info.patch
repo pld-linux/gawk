@@ -13,7 +13,7 @@ diff -Nru gawk-3.1.2.orig/doc/gawk.texi gawk-3.1.2/doc/gawk.texi
 -@dircategory Individual utilities
 -@direntry
 -* awk: (gawk)Invoking gawk.                     Text scanning and processing.
-+* Gawk: (gawk).                                      A text scanning and processing language.
++* Gawk: (gawk).				A text scanning and processing language
  @end direntry
  
  @c @set xref-automatic-section-title
@@ -28,7 +28,7 @@ diff -Nru gawk-3.1.2.orig/doc/gawkinet.texi gawk-3.1.2/doc/gawkinet.texi
 +@dircategory Programming Languages:
  @direntry
 -* Gawkinet: (gawkinet).         TCP/IP Internetworking With `gawk'.
-+* Gawkinet: (gawkinet).                             TCP/IP Internetworking With `gawk'.
++* Gawkinet: (gawkinet).			TCP/IP Internetworking With `gawk'
  @end direntry
  
  @iftex

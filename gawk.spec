@@ -18,10 +18,11 @@ Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-pmake.patch
-Patch3:		%{name}-ac.patch
+BuildRequires:	autoconf >= 2.57
+BuildRequires:	automake >= 1.7
+BuildRequires:	texinfo
 Requires:	mktemp
 Requires:	sed
-BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gawk-doc
 
@@ -100,11 +101,10 @@ Araçlarýndan biridir.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
 %{__aclocal}
-%{__autoconf}
+%{__autoconf} -I m4
 %{__autoheader}
 %{__automake}
 %configure \
