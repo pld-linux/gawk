@@ -10,14 +10,18 @@ Summary(tr):	GNU araçlarý metin düzenleyici
 Summary(uk):	GNU ×ÅÒÓ¦Ñ ÕÔÉÌ¦ÔÉ ÏÂÒÏÂËÉ ÔÅËÓÔ¦× awk
 Name:		gawk
 Version:	3.1.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	47e3754195bf32c8b78ad632bab903cd
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
+# Source1-md5:	80753d75be0f469f70e8c90e75121a9c
+Source2:	%{name}-pl.po
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-newsecurity.patch
 Patch2:		%{name}-shutup.patch
+Patch3:		%{name}-it_po.patch
 Requires:	mktemp
 Requires:	sed
 BuildRequires:	texinfo
@@ -95,10 +99,14 @@ Araçlarýndan biridir.
 ÐÒÁËÔÉÞÎÏ ÐÏ×Î¦ÓÔÀ ×¦ÄÐÏ×¦ÄÁ¤ ÓÔÁÎÄÁÒÔÕ 1993 POSIX 1003.2 ÎÁ awk.
 
 %prep
-%setup  -q
+%setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+
+cp %{SOURCE2} po/pl.po
+echo 'pl' >> po/LINGUAS
 
 %build
 %configure2_13 \
