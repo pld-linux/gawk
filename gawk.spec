@@ -22,7 +22,7 @@ BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gawk-doc
 
-%define		_prefix		/
+%define		_bindir		/bin
 %define		_libexecdir	%{_prefix}/lib
 %define		_libdir		%{_prefix}/lib
 
