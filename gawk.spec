@@ -21,6 +21,7 @@ Source2:	%{name}-pl.po
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-pmake.patch
+Patch3:		%{name}-it_po.patch
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.7
 BuildRequires:	texinfo >= 4.3
@@ -104,6 +105,7 @@ Araçlarýndan biridir.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 cp %{SOURCE2} po/pl.po
 echo 'pl' >> po/LINGUAS
