@@ -1,10 +1,10 @@
 Summary:	The GNU version of the awk text processing utility
 Summary(de):	Die GNU-Version des AWK-Textverarbeitungsutilitys
-Summary(es): Utilitarios GNU para manipulación de archivos texto
+Summary(es):	Utilitarios GNU para manipulación de archivos texto
 Summary(fr):	Traitement de texte des utilitaires GNU
 Summary(pl):	Wersja GNU awk - narzêdzia do obróbki tekstów
 Summary(tr):	GNU araçlarý metin düzenleyici
-Summary(pt_BR): Utilitários GNU para manipulação arquivos texto
+Summary(pt_BR):	Utilitários GNU para manipulação arquivos texto
 Name:		gawk
 Version:	3.1.0
 Release:	5
@@ -40,10 +40,10 @@ Gawk ist kompatibel zu der Bell Labs research-Version von awk, und ist
 fast kompatibel zum 1993 POSIX 1003.2-awk-Standard.
 
 %description -l es
-Este es el GNU Awk. Debe ser compatible con la versión de pesquisa
-de awk del Bell Labs. Es casi completamente vinculado con el padrón
-1993 POSIX 1003.2 para awk. Gawk puede ser usado para procesar
-archivos texto y se considera una herramienta padrón del Linux.
+Este es el GNU Awk. Debe ser compatible con la versión de pesquisa de
+awk del Bell Labs. Es casi completamente vinculado con el padrón 1993
+POSIX 1003.2 para awk. Gawk puede ser usado para procesar archivos
+texto y se considera una herramienta padrón del Linux.
 
 %description -l fr
 awk de GNU, compatible vers le haut avec les versions awk des Bell
@@ -89,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_bindir}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT 
+	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
 
@@ -111,7 +111,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *gz README_d/README.linux.gz 
+%doc *gz README_d/README.linux.gz
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %lang(es) %{_mandir}/es/man1/*
