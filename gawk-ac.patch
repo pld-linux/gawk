@@ -1,0 +1,26 @@
+--- gawk-3.1.1/configure.in	Mon Apr 29 12:23:32 2002
++++ gawk-3.1.1.new/configure.in	Sun Mar  2 08:36:21 2003
+@@ -23,6 +23,12 @@
+ 
+ dnl Process this file with autoconf to produce a configure script.
+ 
++m4_pattern_allow(GAWK_AC_LINUX_ALPHA)
++m4_pattern_allow(GAWK_AC_TYPE_SSIZE_T)
++m4_pattern_allow(GAWK_AC_FUNC_STRTOD_C89)
++m4_pattern_allow(GAWK_AC_LIB_SOCKETS)
++m4_pattern_allow(GAWK_AC_AIX_TWEAK)
++
+ AC_INIT(awk.h)
+ AC_PREREQ(2.13)
+ AM_INIT_AUTOMAKE(gawk, 3.1.1)
+--- gawk-3.1.1/Makefile.am	Sun Apr 28 14:27:54 2002
++++ gawk-3.1.1.new/Makefile.am	Sun Mar  2 08:43:53 2003
+@@ -110,7 +110,7 @@
+ pgawk_SOURCES = $(base_sources) eval_p.c profile_p.c
+ 
+ # Get extra libs as needed
+-LDADD = @LIBINTL@ @SOCKET_LIBS@
++LDADD = @LIBINTL@
+ 
+ # Special stuff for OS/2, remove after switch to autoconf 2.5x
+ PATH_SEPARATOR = @PATH_SEPARATOR@
