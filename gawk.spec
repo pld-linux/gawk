@@ -17,6 +17,7 @@ Patch3:		gawk-DESTDIR.patch
 Requires:	mktemp
 Requires:	sed
 Prereq:		/usr/sbin/fix-info-dir
+BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_prefix}/lib
@@ -99,7 +100,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *gz README_d/README.linux.gz doc/*.ps.gz
-%attr(755,root,root) /usr/bin/*
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
 %{_infodir}/*info*
