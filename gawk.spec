@@ -10,11 +10,12 @@ Summary(tr):	GNU araçlarý metin düzenleyici
 Summary(uk):	GNU ×ÅÒÓ¦Ñ ÕÔÉÌ¦ÔÉ ÏÂÒÏÂËÉ ÔÅËÓÔ¦× awk
 Name:		gawk
 Version:	3.1.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/%{name}/%{name}-%{version}.tar.gz
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
+Source2:	%{name}-pl.po
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-pmake.patch
@@ -27,7 +28,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	gawk-doc
 
 %define		_libexecdir	%{_prefix}/lib
-%define		_libdir		%{_prefix}/lib
 
 %description
 The gawk packages contains the GNU version of awk, a text processing
@@ -101,6 +101,9 @@ Araçlarýndan biridir.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+
+cp %{SOURCE2} po/pl.po
+echo 'pl' >> po/LINGUAS
 
 %build
 %{__aclocal}
