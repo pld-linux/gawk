@@ -26,42 +26,45 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The gawk packages contains the GNU version of awk, a text processing
-utility. Awk interprets a special-purpose programming language to do quick
-and easy text pattern matching and reformatting jobs. Gawk should be
-upwardly compatible with the Bell Labs research version of awk and is
-almost completely compliant with the 1993 POSIX 1003.2 standard for awk.
+utility. Awk interprets a special-purpose programming language to do
+quick and easy text pattern matching and reformatting jobs. Gawk
+should be upwardly compatible with the Bell Labs research version of
+awk and is almost completely compliant with the 1993 POSIX 1003.2
+standard for awk.
 
-Install the gawk package if you need a text processing utility. Gawk is
-considered to be a standard Linux tool for processing text.
+Install the gawk package if you need a text processing utility. Gawk
+is considered to be a standard Linux tool for processing text.
 
 %description -l de
 Das gawk-Paket enthält die GNU-Version von awk, einem
 Textverarbeitungs-Utility. Awk interpretiert eine spezielle
-Programmiersprache, um Textmuster zu suchen, und neu zu formatieren. Gawk
-ist kompatibel zu der Bell Labs research-Version von awk, und ist fast
-kompatibel zum 1993 POSIX 1003.2-awk-Standard.
+Programmiersprache, um Textmuster zu suchen, und neu zu formatieren.
+Gawk ist kompatibel zu der Bell Labs research-Version von awk, und ist
+fast kompatibel zum 1993 POSIX 1003.2-awk-Standard.
 
 Installieren Sie gawk, wenn Sie ein Textverarbeitungsutility brauchen.
 
 %description -l fr
-awk de GNU, compatible vers le haut avec les versions awk des Bell Labs. Il
-est presque totalement conforme au standard 1993 POSIX 1003.2 de awk.
+awk de GNU, compatible vers le haut avec les versions awk des Bell
+Labs. Il est presque totalement conforme au standard 1993 POSIX 1003.2
+de awk.
 
-gawk sert à traiter les fichiers texte est est considéré comme un outil
-standard de Linux.
+gawk sert à traiter les fichiers texte est est considéré comme un
+outil standard de Linux.
 
 %description -l pl
-Pakiet zawiera implementacjê GNU interpretera jêzyka awk, który powinien
-byæ kompatybilny z aplikacj± o tej samej nazwie zrobion± przez Bell Labs.
-GNU awk jest w pe³ni zgodny ze standardem 1993 POSIX 1003.2.
+Pakiet zawiera implementacjê GNU interpretera jêzyka awk, który
+powinien byæ kompatybilny z aplikacj± o tej samej nazwie zrobion±
+przez Bell Labs. GNU awk jest w pe³ni zgodny ze standardem 1993 POSIX
+1003.2.
 
-Gawk (GNU awk) jest zaawansowanym jêzykiem skryptowym, doskonale nadaj±cym
-siê do obróbki plików tekstowych. Jest to jedno z podstawowych narzêdzi
-systemu Linux.
+Gawk (GNU awk) jest zaawansowanym jêzykiem skryptowym, doskonale
+nadaj±cym siê do obróbki plików tekstowych. Jest to jedno z
+podstawowych narzêdzi systemu Linux.
 
 %description -l tr
-Gawk metin dosyalarýný iþlemek için kullanýlan standart Linux araçlarýndan
-biridir.
+Gawk metin dosyalarýný iþlemek için kullanýlan standart Linux
+araçlarýndan biridir.
 
 %prep
 %setup  -q
