@@ -5,7 +5,7 @@ Summary(pl):	Wersja GNU awk - narzêdzia do obróbki tekstów
 Summary(tr):	GNU araçlarý metin düzenleyici
 Name:		gawk
 Version:	3.0.4
-Release:	2
+Release:	3
 Copyright:	GPL
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
@@ -92,7 +92,7 @@ gzip -9f $RPM_BUILD_ROOT{%{_infodir}/gawk.info*,%{_mandir}/man1/*} \
 %post
 /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
-%preun
+%postun
 /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %clean
