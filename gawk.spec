@@ -55,7 +55,7 @@ byæ kompatybilny z aplikacj± o tej samej nazwie zrobion± przez Bell Labs.
 GNU awk jest w pe³ni zgodny ze standardem 1993 POSIX 1003.2.
 
 Gawk (GNU awk) jest zaawansowanym jêzykiem skryptowym, doskonale nadaj±cym
-sie do obróbki plików tekstowych. Jest to jedno z podstawowych narzêdzi
+siê do obróbki plików tekstowych. Jest to jedno z podstawowych narzêdzi
 systemu Linux.
 
 %description -l tr
