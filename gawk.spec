@@ -18,6 +18,8 @@ Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-newsecurity.patch
 Patch2:		%{name}-shutup.patch
+Patch3:		%{name}-pmake.patch
+Patch4:		%{name}-ac.patch
 Requires:	mktemp
 Requires:	sed
 BuildRequires:	texinfo
@@ -99,9 +101,15 @@ Araçlarýndan biridir.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
-%configure2_13 \
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
+%configure \
 	--enable-nls
 %{__make}
 
