@@ -1,0 +1,83 @@
+diff -ru gawk-3.1.4/configure.ac gawk-3.1.4.new/configure.ac
+--- gawk-3.1.4/configure.ac	2004-08-02 09:09:52.000000000 +0000
++++ gawk-3.1.4.new/configure.ac	2005-04-17 12:54:53.000000000 +0000
+@@ -162,8 +162,8 @@
+ AC_TYPE_SIGNAL
+ AC_SIZE_T
+ AC_TYPE_GETGROUPS
+-jm_AC_TYPE_LONG_LONG
+-jm_AC_TYPE_UNSIGNED_LONG_LONG
++gl_AC_TYPE_LONG_LONG
++gl_AC_TYPE_UNSIGNED_LONG_LONG
+ jm_AC_TYPE_INTMAX_T
+ jm_AC_TYPE_UINTMAX_T
+ AC_CHECK_TYPE(ssize_t, int)
+diff -ru gawk-3.1.4/m4/gettext.m4 gawk-3.1.4.new/m4/gettext.m4
+--- gawk-3.1.4/m4/gettext.m4	2004-02-19 21:08:40.000000000 +0000
++++ gawk-3.1.4.new/m4/gettext.m4	2005-04-17 12:54:53.000000000 +0000
+@@ -358,7 +358,7 @@
+   AC_REQUIRE([AC_C_INLINE])dnl
+   AC_REQUIRE([AC_TYPE_OFF_T])dnl
+   AC_REQUIRE([AC_TYPE_SIZE_T])dnl
+-  AC_REQUIRE([jm_AC_TYPE_LONG_LONG])dnl
++  AC_REQUIRE([gl_AC_TYPE_LONG_LONG])dnl
+   AC_REQUIRE([gt_TYPE_LONGDOUBLE])dnl
+   AC_REQUIRE([gt_TYPE_WCHAR_T])dnl
+   AC_REQUIRE([gt_TYPE_WINT_T])dnl
+diff -ru gawk-3.1.4/m4/intmax_t.m4 gawk-3.1.4.new/m4/intmax_t.m4
+--- gawk-3.1.4/m4/intmax_t.m4	2003-03-28 08:30:36.000000000 +0000
++++ gawk-3.1.4.new/m4/intmax_t.m4	2005-04-17 12:54:53.000000000 +0000
+@@ -8,7 +8,7 @@
+ 
+ AC_DEFUN([jm_AC_TYPE_INTMAX_T],
+ [
+-  AC_REQUIRE([jm_AC_TYPE_LONG_LONG])
++  AC_REQUIRE([gl_AC_TYPE_LONG_LONG])
+   AC_CHECK_TYPE(intmax_t, ,
+     [test $ac_cv_type_long_long = yes \
+        && ac_type='long long' \
+@@ -22,7 +22,7 @@
+ 
+ AC_DEFUN([jm_AC_TYPE_UINTMAX_T],
+ [
+-  AC_REQUIRE([jm_AC_TYPE_UNSIGNED_LONG_LONG])
++  AC_REQUIRE([gl_AC_TYPE_UNSIGNED_LONG_LONG])
+   AC_CHECK_TYPE(uintmax_t, ,
+     [test $ac_cv_type_unsigned_long_long = yes \
+        && ac_type='unsigned long long' \
+diff -ru gawk-3.1.4/m4/longlong.m4 gawk-3.1.4.new/m4/longlong.m4
+--- gawk-3.1.4/m4/longlong.m4	2004-02-19 21:08:40.000000000 +0000
++++ gawk-3.1.4.new/m4/longlong.m4	2005-04-17 12:54:53.000000000 +0000
+@@ -10,7 +10,7 @@
+ 
+ # Define HAVE_LONG_LONG if 'long long' works.
+ 
+-AC_DEFUN([jm_AC_TYPE_LONG_LONG],
++AC_DEFUN([gl_AC_TYPE_LONG_LONG],
+ [
+   AC_CACHE_CHECK([for long long], ac_cv_type_long_long,
+   [AC_TRY_LINK([long long ll = 1LL; int i = 63;],
+diff -ru gawk-3.1.4/m4/uintmax_t.m4 gawk-3.1.4.new/m4/uintmax_t.m4
+--- gawk-3.1.4/m4/uintmax_t.m4	2004-02-19 21:08:41.000000000 +0000
++++ gawk-3.1.4.new/m4/uintmax_t.m4	2005-04-17 12:54:53.000000000 +0000
+@@ -18,7 +18,7 @@
+   AC_REQUIRE([jm_AC_HEADER_INTTYPES_H])
+   AC_REQUIRE([jm_AC_HEADER_STDINT_H])
+   if test $jm_ac_cv_header_inttypes_h = no && test $jm_ac_cv_header_stdint_h = no; then
+-    AC_REQUIRE([jm_AC_TYPE_UNSIGNED_LONG_LONG])
++    AC_REQUIRE([gl_AC_TYPE_UNSIGNED_LONG_LONG])
+     test $ac_cv_type_unsigned_long_long = yes \
+       && ac_type='unsigned long long' \
+       || ac_type='unsigned long'
+diff -ru gawk-3.1.4/m4/ulonglong.m4 gawk-3.1.4.new/m4/ulonglong.m4
+--- gawk-3.1.4/m4/ulonglong.m4	2004-02-19 21:08:41.000000000 +0000
++++ gawk-3.1.4.new/m4/ulonglong.m4	2005-04-17 12:54:53.000000000 +0000
+@@ -10,7 +10,7 @@
+ 
+ # Define HAVE_UNSIGNED_LONG_LONG if 'unsigned long long' works.
+ 
+-AC_DEFUN([jm_AC_TYPE_UNSIGNED_LONG_LONG],
++AC_DEFUN([gl_AC_TYPE_UNSIGNED_LONG_LONG],
+ [
+   AC_CACHE_CHECK([for unsigned long long], ac_cv_type_unsigned_long_long,
+   [AC_TRY_LINK([unsigned long long ull = 1ULL; int i = 63;],
