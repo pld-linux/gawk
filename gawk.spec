@@ -21,6 +21,7 @@ Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-pmake.patch
 Patch3:		%{name}-it_po.patch
+Patch4:		%{name}-gettext-m4.patch
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	texinfo >= 4.3
@@ -103,6 +104,7 @@ Araçlarýndan biridir.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 %{__gettextize}
