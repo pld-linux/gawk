@@ -9,23 +9,21 @@ Summary(ru):	GNU ×ÅÒÓÉÑ ÕÔÉÌÉÔÙ ÏÂÒÁÂÏÔËÉ ÔÅËÓÔÏ× awk
 Summary(tr):	GNU araçlarý metin düzenleyici
 Summary(uk):	GNU ×ÅÒÓ¦Ñ ÕÔÉÌ¦ÔÉ ÏÂÒÏÂËÉ ÔÅËÓÔ¦× awk
 Name:		gawk
-Version:	3.1.4
-Release:	3
+Version:	3.1.5
+Release:	1
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
-# Source0-md5:	b8b532beaf02350e69d2d5dc98cb1e37
+# Source0-md5:	5703f72d0eea1d463f735aad8222655f
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
-Patch2:		%{name}-pmake.patch
-Patch3:		%{name}-it_po.patch
-Patch4:		%{name}-gettext-m4.patch
+Patch2:		%{name}-pl.po-update.patch
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	texinfo >= 4.3
-BuildRequires:	gettext-devel >= 0.14.1
+BuildRequires:	gettext-devel >= 0.14.4
 Requires:	mktemp
 Requires:	sed
 Obsoletes:	gawk-doc
@@ -103,8 +101,8 @@ Araçlarýndan biridir.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p1
+
+rm -f po/stamp-po
 
 %build
 %{__gettextize}
