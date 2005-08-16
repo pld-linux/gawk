@@ -1,0 +1,13 @@
+--- gawk-3.1.5/po/pl.po.orig	2005-07-06 16:20:05.000000000 +0200
++++ gawk-3.1.5/po/pl.po	2005-08-16 22:35:05.131836216 +0200
+@@ -449,9 +449,8 @@
+ msgstr "int: otrzymano argument, który nie jest liczb±"
+ 
+ #: builtin.c:472
+-#, fuzzy
+ msgid "`length(array)' is a gawk extension"
+-msgstr "`delete tablica' jest rozszerzeniem gawk"
++msgstr "`length(tablica)' jest rozszerzeniem gawk"
+ 
+ #: builtin.c:481
+ msgid "length: received non-string argument"
