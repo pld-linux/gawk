@@ -10,7 +10,7 @@ Summary(tr):	GNU araГlarЩ metin dЭzenleyici
 Summary(uk):	GNU верс╕я утил╕ти обробки текст╕в awk
 Name:		gawk
 Version:	3.1.5
-Release:	1
+Release:	1.1
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
@@ -22,12 +22,14 @@ Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-pl.po-update.patch
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.7
-BuildRequires:	texinfo >= 4.3
 BuildRequires:	gettext-devel >= 0.14.4
+BuildRequires:	texinfo >= 4.3
 Requires:	mktemp
 Requires:	sed
 Obsoletes:	gawk-doc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_includedir	%{_prefix}/include/awk
 
 %description
 The gawk packages contains the GNU version of awk, a text processing
@@ -96,6 +98,13 @@ AraГlarЩndan biridir.
 текст╕в. Gawk ма╓ бути сум╕сним з верс╕╓ю awk в╕д Bell Labs ╕
 практично повн╕стю в╕дпов╕да╓ стандарту 1993 POSIX 1003.2 на awk.
 
+%package devel
+Summary:	Header files for gawk
+Group:		Development/Libraries
+
+%description devel
+This is the package containing the header files for gawk.
+
 %prep
 %setup -q
 %patch0 -p1
@@ -112,7 +121,7 @@ rm -f po/stamp-po
 %{__automake}
 %configure
 
-%{__make}
+%{__make} -j1
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -120,9 +129,13 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
+install -d $RPM_BUILD_ROOT%{_includedir}
+install *.h $RPM_BUILD_ROOT%{_includedir}
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
+rm -f $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
+rm -f $RPM_BUILD_ROOT%{_datadir}/info/dir
+rm -f $RPM_BUILD_ROOT%{_mandir}/README.gawk-non-english-man-pages
 
 %find_lang %{name}
 
@@ -151,3 +164,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_infodir}/*info*
 %attr(755,root,root) %{_libdir}/awk
 %{_datadir}/awk
+
+%files devel
+%defattr(644,root,root,755)
+%{_includedir}
