@@ -100,10 +100,14 @@ Araçlarýndan biridir.
 
 %package devel
 Summary:	Header files for gawk
+Summary(pl):	Pliki nag³ówkowe dla gawka
 Group:		Development/Libraries
 
 %description devel
 This is the package containing the header files for gawk.
+
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe dla gawka.
 
 %prep
 %setup -q
