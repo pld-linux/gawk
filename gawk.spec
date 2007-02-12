@@ -1,13 +1,13 @@
 Summary:	The GNU version of the awk text processing utility
-Summary(de):	Die GNU-Version des AWK-Textverarbeitungsutilitys
-Summary(es):	Utilitarios GNU para manipulaciСn de archivos texto
-Summary(fr):	Traitement de texte des utilitaires GNU
-Summary(ja):	GNU ╔п║╪╔╦╔Г╔С╓н awk ╔ф╔╜╔╧╔х╫ХмЩ╔Ф║╪╔ф╔ё╔Й╔ф╔ё║╪
-Summary(pl):	Wersja GNU awk - narzЙdzia do obrСbki tekstСw
-Summary(pt_BR):	UtilitАrios GNU para manipulaГЦo arquivos texto
-Summary(ru):	GNU версия утилиты обработки текстов awk
-Summary(tr):	GNU araГlarЩ metin dЭzenleyici
-Summary(uk):	GNU верс╕я утил╕ти обробки текст╕в awk
+Summary(de.UTF-8):   Die GNU-Version des AWK-Textverarbeitungsutilitys
+Summary(es.UTF-8):   Utilitarios GNU para manipulaciцЁn de archivos texto
+Summary(fr.UTF-8):   Traitement de texte des utilitaires GNU
+Summary(ja.UTF-8):   GNU Ц┐░Ц┐╪Ц┌╦Ц┐╖Ц┐ЁЦ│╝ awk Ц┐├Ц┌╜Ц┌╧Ц┐┬Е┤╕Г░├Ц┐╕Ц┐╪Ц┐├Ц┌ёЦ┐╙Ц┐├Ц┌ёЦ┐╪
+Summary(pl.UTF-8):   Wersja GNU awk - narzд≥dzia do obrцЁbki tekstцЁw
+Summary(pt_BR.UTF-8):   Utilitц║rios GNU para manipulaц╖цёo arquivos texto
+Summary(ru.UTF-8):   GNU п╡п╣я─я│п╦я▐ я┐я┌п╦п╩п╦я┌я▀ п╬п╠я─п╟п╠п╬я┌п╨п╦ я┌п╣п╨я│я┌п╬п╡ awk
+Summary(tr.UTF-8):   GNU araц╖larд╠ metin dц╪zenleyici
+Summary(uk.UTF-8):   GNU п╡п╣я─я│я√я▐ я┐я┌п╦п╩я√я┌п╦ п╬п╠я─п╬п╠п╨п╦ я┌п╣п╨я│я┌я√п╡ awk
 Name:		gawk
 Version:	3.1.5
 Release:	2
@@ -39,75 +39,75 @@ should be upwardly compatible with the Bell Labs research version of
 awk and is almost completely compliant with the 1993 POSIX 1003.2
 standard for awk.
 
-%description -l de
-Das gawk-Paket enthДlt die GNU-Version von awk, einem
+%description -l de.UTF-8
+Das gawk-Paket enthц╓lt die GNU-Version von awk, einem
 Textverarbeitungs-Utility. Awk interpretiert eine spezielle
 Programmiersprache, um Textmuster zu suchen, und neu zu formatieren.
 Gawk ist kompatibel zu der Bell Labs research-Version von awk, und ist
 fast kompatibel zum 1993 POSIX 1003.2-awk-Standard.
 
-%description -l es
-Este es el GNU Awk. Debe ser compatible con la versiСn de pesquisa de
-awk del Bell Labs. Es casi completamente vinculado con el padrСn 1993
+%description -l es.UTF-8
+Este es el GNU Awk. Debe ser compatible con la versiцЁn de pesquisa de
+awk del Bell Labs. Es casi completamente vinculado con el padrцЁn 1993
 POSIX 1003.2 para awk. Gawk puede ser usado para procesar archivos
-texto y se considera una herramienta padrСn del Linux.
+texto y se considera una herramienta padrцЁn del Linux.
 
-%description -l fr
+%description -l fr.UTF-8
 awk de GNU, compatible vers le haut avec les versions awk des Bell
 Labs. Il est presque totalement conforme au standard 1993 POSIX 1003.2
 de awk.
 
-%description -l ja
-gawk ╔я╔ц╔╠║╪╔╦╓о GNU ╔п║╪╔╦╔Г╔С╓н║╒╔ф╔╜╔╧╔х╫ХмЩ╔Ф║╪╔ф╔ё╔Й╔ф╔ё║╪
-╓г╓╒╓К awk ╓Р╢ч╓С╓г╓╓╓ч╓╧║ёawk ╓оагаА╓╞║╒мф╟в╓й╔я╔©║╪╔С╔ч╔ц╔а╔С╔╟╓х
-ю╟╥а╫ХмЩ╓Р╓╧╓К╓©╓А╓нфц╪Л╓йлэе╙╓н╦ю╦Л╓г╓╧║ёgawk ╓о╔ы╔К╦╕╓н╔п║╪╔╦╔Г╔С╓н
-awk ╓х╬Е╟л╦ъ╢╧╓г║╒awk ╓н 1993 POSIX 1003.2 и╦╫Ю╓к╢╟а╢╓к╧Гцв╓╥╓ч╓╧║ё
+%description -l ja.UTF-8
+gawk Ц┐▒Ц┐┐Ц┌╠Ц┐╪Ц┌╦Ц│╞ GNU Ц┐░Ц┐╪Ц┌╦Ц┐╖Ц┐ЁЦ│╝Ц─│Ц┐├Ц┌╜Ц┌╧Ц┐┬Е┤╕Г░├Ц┐╕Ц┐╪Ц┐├Ц┌ёЦ┐╙Ц┐├Ц┌ёЦ┐╪
+Ц│╖Ц│┌Ц┌▀ awk Ц┌▓Е░╚Ц┌⌠Ц│╖Ц│└Ц│╬Ц│≥Ц─┌awk Ц│╞Г╢═Ф≈╘Ц│▐Ц─│Е╝╧Ф≤⌠Ц│╙Ц┐▒Ц┌©Ц┐╪Ц┐ЁЦ┐·Ц┐┐Ц┐│Ц┐ЁЦ┌╟Ц│╗
+Ф∙╢Е╫╒Е┤╕Г░├Ц┌▓Ц│≥Ц┌▀Ц│÷Ц┌│Ц│╝Г┴╧Ф╝┼Ц│╙Г⌡╝Г └Ц│╝Х╗─Х╙·Ц│╖Ц│≥Ц─┌gawk Ц│╞Ц┐≥Ц┐╚Г═■Ц│╝Ц┐░Ц┐╪Ц┌╦Ц┐╖Ц┐ЁЦ│╝
+awk Ц│╗Д╦┼Д╫█Д╨▓Ф▐⌡Ц│╖Ц─│awk Ц│╝ 1993 POSIX 1003.2 Ф╗≥Ф╨√Ц│╚Е╝▄Е┘╗Ц│╚Е░┬Х┤╢Ц│≈Ц│╬Ц│≥Ц─┌
 
-%description -l pl
-Pakiet zawiera implementacjЙ GNU interpretera jЙzyka awk, ktСry
-powinien byФ kompatybilny z aplikacj╠ o tej samej nazwie zrobion╠
-przez Bell Labs. GNU awk jest w peЁni zgodny ze standardem 1993 POSIX
+%description -l pl.UTF-8
+Pakiet zawiera implementacjд≥ GNU interpretera jд≥zyka awk, ktцЁry
+powinien byд┤ kompatybilny z aplikacjд┘ o tej samej nazwie zrobionд┘
+przez Bell Labs. GNU awk jest w peе┌ni zgodny ze standardem 1993 POSIX
 1003.2.
 
-Gawk (GNU awk) jest zaawansowanym jЙzykiem skryptowym, doskonale
-nadaj╠cym siЙ do obrСbki plikСw tekstowych. Jest to jedno z
-podstawowych narzЙdzi systemu Linux.
+Gawk (GNU awk) jest zaawansowanym jд≥zykiem skryptowym, doskonale
+nadajд┘cym siд≥ do obrцЁbki plikцЁw tekstowych. Jest to jedno z
+podstawowych narzд≥dzi systemu Linux.
 
-%description -l pt_BR
-Este И o GNU Awk. Ele deve ser compatМvel com a versЦo de pesquisa de
-awk do Bell Labs. Ele И quase completamente vinculado com o padrЦo
+%description -l pt_BR.UTF-8
+Este ц╘ o GNU Awk. Ele deve ser compatц╜vel com a versцёo de pesquisa de
+awk do Bell Labs. Ele ц╘ quase completamente vinculado com o padrцёo
 1993 POSIX 1003.2 para awk. Gawk pode ser usado para processar
-arquivos texto e И considerado uma ferramenta padrЦo do Linux.
+arquivos texto e ц╘ considerado uma ferramenta padrцёo do Linux.
 
-%description -l ru
-Пакет gawk содержит GNU версию awk, утилиты обработки текстов. awk
-интерпретирует специализированный язык программирования для быстрого и
-легкого выполнения работ по сопоставлению с шаблонами и
-переформатированию текстов. Gawk должен быть совместим с версией awk
-от Bell Labs и практически полностью отвечает стандарту 1993 POSIX
-1003.2 на awk.
+%description -l ru.UTF-8
+п÷п╟п╨п╣я┌ gawk я│п╬п╢п╣я─п╤п╦я┌ GNU п╡п╣я─я│п╦я▌ awk, я┐я┌п╦п╩п╦я┌я▀ п╬п╠я─п╟п╠п╬я┌п╨п╦ я┌п╣п╨я│я┌п╬п╡. awk
+п╦п╫я┌п╣я─п©я─п╣я┌п╦я─я┐п╣я┌ я│п©п╣я├п╦п╟п╩п╦п╥п╦я─п╬п╡п╟п╫п╫я▀п╧ я▐п╥я▀п╨ п©я─п╬пЁя─п╟п╪п╪п╦я─п╬п╡п╟п╫п╦я▐ п╢п╩я▐ п╠я▀я│я┌я─п╬пЁп╬ п╦
+п╩п╣пЁп╨п╬пЁп╬ п╡я▀п©п╬п╩п╫п╣п╫п╦я▐ я─п╟п╠п╬я┌ п©п╬ я│п╬п©п╬я│я┌п╟п╡п╩п╣п╫п╦я▌ я│ я┬п╟п╠п╩п╬п╫п╟п╪п╦ п╦
+п©п╣я─п╣я└п╬я─п╪п╟я┌п╦я─п╬п╡п╟п╫п╦я▌ я┌п╣п╨я│я┌п╬п╡. Gawk п╢п╬п╩п╤п╣п╫ п╠я▀я┌я▄ я│п╬п╡п╪п╣я│я┌п╦п╪ я│ п╡п╣я─я│п╦п╣п╧ awk
+п╬я┌ Bell Labs п╦ п©я─п╟п╨я┌п╦я┤п╣я│п╨п╦ п©п╬п╩п╫п╬я│я┌я▄я▌ п╬я┌п╡п╣я┤п╟п╣я┌ я│я┌п╟п╫п╢п╟я─я┌я┐ 1993 POSIX
+1003.2 п╫п╟ awk.
 
-%description -l tr
-Gawk metin dosyalarЩnЩ iЧlemek iГin kullanЩlan standart Linux
-AraГlarЩndan biridir.
+%description -l tr.UTF-8
+Gawk metin dosyalarд╠nд╠ iе÷lemek iц╖in kullanд╠lan standart Linux
+Araц╖larд╠ndan biridir.
 
-%description -l uk
-Пакет gawk м╕стить GNU верс╕ю awk, утил╕ти обробки текст╕в. awk
-╕нтерпрету╓ спец╕ал╕зовану мову програмування для швидкого та легкого
-виконання роб╕т по сп╕вставленню з шаблонами та переформатуванню
-текст╕в. Gawk ма╓ бути сум╕сним з верс╕╓ю awk в╕д Bell Labs ╕
-практично повн╕стю в╕дпов╕да╓ стандарту 1993 POSIX 1003.2 на awk.
+%description -l uk.UTF-8
+п÷п╟п╨п╣я┌ gawk п╪я√я│я┌п╦я┌я▄ GNU п╡п╣я─я│я√я▌ awk, я┐я┌п╦п╩я√я┌п╦ п╬п╠я─п╬п╠п╨п╦ я┌п╣п╨я│я┌я√п╡. awk
+я√п╫я┌п╣я─п©я─п╣я┌я┐я■ я│п©п╣я├я√п╟п╩я√п╥п╬п╡п╟п╫я┐ п╪п╬п╡я┐ п©я─п╬пЁя─п╟п╪я┐п╡п╟п╫п╫я▐ п╢п╩я▐ я┬п╡п╦п╢п╨п╬пЁп╬ я┌п╟ п╩п╣пЁп╨п╬пЁп╬
+п╡п╦п╨п╬п╫п╟п╫п╫я▐ я─п╬п╠я√я┌ п©п╬ я│п©я√п╡я│я┌п╟п╡п╩п╣п╫п╫я▌ п╥ я┬п╟п╠п╩п╬п╫п╟п╪п╦ я┌п╟ п©п╣я─п╣я└п╬я─п╪п╟я┌я┐п╡п╟п╫п╫я▌
+я┌п╣п╨я│я┌я√п╡. Gawk п╪п╟я■ п╠я┐я┌п╦ я│я┐п╪я√я│п╫п╦п╪ п╥ п╡п╣я─я│я√я■я▌ awk п╡я√п╢ Bell Labs я√
+п©я─п╟п╨я┌п╦я┤п╫п╬ п©п╬п╡п╫я√я│я┌я▌ п╡я√п╢п©п╬п╡я√п╢п╟я■ я│я┌п╟п╫п╢п╟я─я┌я┐ 1993 POSIX 1003.2 п╫п╟ awk.
 
 %package devel
 Summary:	Header files for gawk
-Summary(pl):	Pliki nagЁСwkowe dla gawka
+Summary(pl.UTF-8):   Pliki nagе┌цЁwkowe dla gawka
 Group:		Development/Libraries
 
 %description devel
 This is the package containing the header files for gawk.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nagЁСwkowe dla gawka.
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nagе┌цЁwkowe dla gawka.
 
 %prep
 %setup -q
