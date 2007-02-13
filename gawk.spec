@@ -1,13 +1,13 @@
 Summary:	The GNU version of the awk text processing utility
-Summary(de.UTF-8):   Die GNU-Version des AWK-Textverarbeitungsutilitys
-Summary(es.UTF-8):   Utilitarios GNU para manipulación de archivos texto
-Summary(fr.UTF-8):   Traitement de texte des utilitaires GNU
-Summary(ja.UTF-8):   GNU バージョンの awk テキスト処理ユーティリティー
-Summary(pl.UTF-8):   Wersja GNU awk - narzędzia do obróbki tekstów
-Summary(pt_BR.UTF-8):   Utilitários GNU para manipulação arquivos texto
-Summary(ru.UTF-8):   GNU версия утилиты обработки текстов awk
-Summary(tr.UTF-8):   GNU araçları metin düzenleyici
-Summary(uk.UTF-8):   GNU версія утиліти обробки текстів awk
+Summary(de.UTF-8):	Die GNU-Version des AWK-Textverarbeitungsutilitys
+Summary(es.UTF-8):	Utilitarios GNU para manipulación de archivos texto
+Summary(fr.UTF-8):	Traitement de texte des utilitaires GNU
+Summary(ja.UTF-8):	GNU バージョンの awk テキスト処理ユーティリティー
+Summary(pl.UTF-8):	Wersja GNU awk - narzędzia do obróbki tekstów
+Summary(pt_BR.UTF-8):	Utilitários GNU para manipulação arquivos texto
+Summary(ru.UTF-8):	GNU версия утилиты обработки текстов awk
+Summary(tr.UTF-8):	GNU araçları metin düzenleyici
+Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
 Version:	3.1.5
 Release:	2
@@ -100,7 +100,7 @@ Araçlarından biridir.
 
 %package devel
 Summary:	Header files for gawk
-Summary(pl.UTF-8):   Pliki nagłówkowe dla gawka
+Summary(pl.UTF-8):	Pliki nagłówkowe dla gawka
 Group:		Development/Libraries
 
 %description devel
