@@ -1,13 +1,28 @@
---- gawk-3.1.5/po/pl.po.orig	2005-07-06 16:20:05.000000000 +0200
-+++ gawk-3.1.5/po/pl.po	2005-08-16 22:35:05.131836216 +0200
-@@ -449,9 +449,8 @@
- msgstr "int: otrzymano argument, który nie jest liczb±"
+--- gawk-3.1.6/po/pl.po.orig	2007-09-30 22:33:27.000000000 +0200
++++ gawk-3.1.6/po/pl.po	2007-11-02 23:50:12.026914849 +0100
+@@ -1595,7 +1595,7 @@
  
- #: builtin.c:472
+ #: main.c:724
+ msgid "\t-W use-lc-numeric\t--use-lc-numeric\n"
+-msgstr ""
++msgstr "\t-W use-lc-numeric\t--use-lc-numeric\n"
+ 
+ #: main.c:725
+ msgid "\t-W version\t\t--version\n"
+@@ -1674,15 +1674,13 @@
+ "\n"
+ 
+ #: main.c:781
 -#, fuzzy
- msgid "`length(array)' is a gawk extension"
--msgstr "`delete tablica' jest rozszerzeniem gawk"
-+msgstr "`length(tablica)' jest rozszerzeniem gawk"
+ msgid ""
+ "You should have received a copy of the GNU General Public License\n"
+ "along with this program. If not, see http://www.gnu.org/licenses/.\n"
+ msgstr ""
+ "Z pewno¶ci± wraz z niniejszym programem otrzyma³e¶ te¿ egzemplarz\n"
+ "Powszechnej Licencji Publicznej GNU (GNU General Public License);\n"
+-"je¶li za¶ nie - napisz do Free Software Foundation, Inc.,\n"
+-"51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA.\n"
++"je¶li za¶ nie - zobacz http://www.gnu.org/licenses/.\n"
  
- #: builtin.c:481
- msgid "length: received non-string argument"
+ #: main.c:816
+ msgid "-Ft does not set FS to tab in POSIX awk"
