@@ -9,32 +9,21 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	3.1.5
-Release:	4
-License:	GPL
+Version:	3.1.6
+Release:	1
+License:	GPL v3+
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
-# Source0-md5:	5703f72d0eea1d463f735aad8222655f
+# Source0-md5:	c9926c0bc8c177cb9579708ce67f0d75
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-pl.po-update.patch
 Patch3:		%{name}-3.1.3-getpgrp_void.patch
-Patch4:		%{name}-3.1.5-free.patch
-Patch5:		%{name}-3.1.5-fieldwidths.patch
-Patch6:		%{name}-3.1.5-binmode.patch
-Patch7:		%{name}-3.1.5-num2str.patch
-Patch8:		%{name}-3.1.5-wconcat.patch
-Patch9:		%{name}-3.1.5-internal.patch
-Patch10:	%{name}-3.1.5-syntaxerror.patch
-Patch11:	%{name}-3.1.5-numflags.patch
-Patch12:	%{name}-3.1.5-ipv6.patch
-Patch13:	%{name}-3.1.5-freewstr.patch
-Patch14:	%{name}-3.1.5-mbread.patch
-BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1:1.7
-BuildRequires:	gettext-devel >= 0.14.4
+BuildRequires:	autoconf >= 2.61
+BuildRequires:	automake >= 1:1.10
+BuildRequires:	gettext-devel >= 0.16.1
 BuildRequires:	texinfo >= 4.3
 Requires:	mktemp
 Requires:	sed
@@ -127,17 +116,6 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
-%patch10 -p1
-%patch11 -p1
-%patch12 -p1
-%patch13 -p1
-%patch14 -p1
 
 rm -f po/stamp-po
 
@@ -178,8 +156,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS README FUTURES LIMITATIONS NEWS PROBLEMS
-%doc README_d/README.linux POSIX.STD
+%doc AUTHORS ChangeLog README FUTURES LIMITATIONS NEWS POSIX.STD PROBLEMS README
 %attr(755,root,root) %{_bindir}/gawk
 %attr(755,root,root) %{_bindir}/igawk
 %attr(755,root,root) %{_bindir}/pgawk*
@@ -189,7 +166,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(it) %{_mandir}/it/man1/*
 %lang(ja) %{_mandir}/ja/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
-%{_infodir}/*info*
+%{_infodir}/*.info*
 %attr(755,root,root) %{_libdir}/awk
 %{_datadir}/awk
 
