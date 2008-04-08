@@ -13,7 +13,7 @@ Version:	3.1.6
 Release:	1
 License:	GPL v3+
 Group:		Applications/Text
-Source0:	ftp://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
 # Source0-md5:	c9926c0bc8c177cb9579708ce67f0d75
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
