@@ -9,18 +9,17 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	3.1.6
+Version:	3.1.7
 Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
-# Source0-md5:	c9926c0bc8c177cb9579708ce67f0d75
+# Source0-md5:	674cc5875714315c490b26293d36dfcf
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
-Patch2:		%{name}-pl.po-update.patch
-Patch3:		%{name}-3.1.3-getpgrp_void.patch
+Patch2:		%{name}-3.1.3-getpgrp_void.patch
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake >= 1:1.10
 BuildRequires:	gettext-devel >= 0.16.1
@@ -115,7 +114,6 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 rm -f po/stamp-po
 
