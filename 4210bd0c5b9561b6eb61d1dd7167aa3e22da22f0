@@ -1,0 +1,2 @@
+- moved running of /usr/sbin/fix-info-dir to %postun
+- release up
