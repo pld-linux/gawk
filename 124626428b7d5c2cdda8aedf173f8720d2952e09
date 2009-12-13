@@ -1,0 +1,3 @@
+- fixes in info patch
+- %configure2_13 (autoconf won't work without patching)
+- release 3
