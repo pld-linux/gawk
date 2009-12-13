@@ -20,7 +20,7 @@ Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Source2:	http://ftp.gnu.org/gnu/libsigsegv/libsigsegv-%{libsigsegv_version}.tar.gz
-# Source0-md5:	ebe554e26870d8bc200ef3e3539ffd7c
+# Source2-md5:	ebe554e26870d8bc200ef3e3539ffd7c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-3.1.3-getpgrp_void.patch
