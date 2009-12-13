@@ -1,3 +1,5 @@
+
+%define	libsigsegv_version	2.8
 Summary:	The GNU version of the awk text processing utility
 Summary(de.UTF-8):	Die GNU-Version des AWK-Textverarbeitungsutilitys
 Summary(es.UTF-8):	Utilitarios GNU para manipulación de archivos texto
@@ -17,12 +19,15 @@ Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
 # Source0-md5:	674cc5875714315c490b26293d36dfcf
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
+Source2:	http://ftp.gnu.org/gnu/libsigsegv/libsigsegv-%{libsigsegv_version}.tar.gz
+# Source0-md5:	ebe554e26870d8bc200ef3e3539ffd7c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-3.1.3-getpgrp_void.patch
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake >= 1:1.10
 BuildRequires:	gettext-devel >= 0.16.1
+BuildRequires:	libtool
 BuildRequires:	texinfo >= 4.3
 Requires:	mktemp
 Requires:	sed
@@ -110,10 +115,17 @@ This is the package containing the header files for gawk.
 Ten pakiet zawiera pliki nagłówkowe dla gawka.
 
 %prep
-%setup -q
+%setup -q -a2
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+
+mv libsigsegv libsigsegv-gawk
+mv libsigsegv-%{libsigsegv_version} libsigsegv
+cat <<'EOF' >> libsigsegv/Makefile.am
+install:
+	@echo nothing to install
+EOF
 
 rm -f po/stamp-po
 
@@ -123,6 +135,15 @@ rm -f po/stamp-po
 %{__autoconf}
 %{__autoheader}
 %{__automake}
+
+cd libsigsegv
+%{__libtoolize}
+%{__aclocal} -I m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
+cd ..
+
 %configure
 
 %{__make} -j1
