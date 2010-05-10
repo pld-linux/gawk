@@ -1,5 +1,3 @@
-
-%define	libsigsegv_version	2.8
 Summary:	The GNU version of the awk text processing utility
 Summary(de.UTF-8):	Die GNU-Version des AWK-Textverarbeitungsutilitys
 Summary(es.UTF-8):	Utilitarios GNU para manipulación de archivos texto
@@ -11,23 +9,23 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	3.1.7
+Version:	3.1.8
 Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
-# Source0-md5:	674cc5875714315c490b26293d36dfcf
+# Source0-md5:	52b41c6c4418b3226dfb8f82076193bb
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
-Source2:	http://ftp.gnu.org/gnu/libsigsegv/libsigsegv-%{libsigsegv_version}.tar.gz
-# Source2-md5:	ebe554e26870d8bc200ef3e3539ffd7c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-3.1.3-getpgrp_void.patch
-BuildRequires:	autoconf >= 2.61
-BuildRequires:	automake >= 1:1.10
-BuildRequires:	gettext-devel >= 0.16.1
+URL:		http://www.gnu.org/software/gawk/
+BuildRequires:	autoconf >= 2.63
+BuildRequires:	automake >= 1:1.11
+BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	libtool
+BuildRequires:	libsigsegv
 BuildRequires:	texinfo >= 4.3
 Requires:	mktemp
 Requires:	sed
@@ -115,17 +113,10 @@ This is the package containing the header files for gawk.
 Ten pakiet zawiera pliki nagłówkowe dla gawka.
 
 %prep
-%setup -q -a2
+%setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-
-mv libsigsegv libsigsegv-gawk
-mv libsigsegv-%{libsigsegv_version} libsigsegv
-cat <<'EOF' >> libsigsegv/Makefile.am
-install:
-	@echo nothing to install
-EOF
 
 rm -f po/stamp-po
 
@@ -135,14 +126,6 @@ rm -f po/stamp-po
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-
-cd libsigsegv
-%{__libtoolize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-cd ..
 
 %configure
 
@@ -167,10 +150,10 @@ rm -f $RPM_BUILD_ROOT%{_mandir}/README.gawk-non-english-man-pages
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p	/sbin/postshell
+%post	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun	-p	/sbin/postshell
+%postun	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files -f %{name}.lang
@@ -179,15 +162,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gawk
 %attr(755,root,root) %{_bindir}/igawk
 %attr(755,root,root) %{_bindir}/pgawk*
+%attr(755,root,root) %{_libdir}/awk
+%{_datadir}/awk
 %{_mandir}/man1/*
 %lang(es) %{_mandir}/es/man1/*
 %lang(fr) %{_mandir}/fr/man1/*
 %lang(it) %{_mandir}/it/man1/*
 %lang(ja) %{_mandir}/ja/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
-%{_infodir}/*.info*
-%attr(755,root,root) %{_libdir}/awk
-%{_datadir}/awk
+%{_infodir}/gawk*.info*
 
 %files devel
 %defattr(644,root,root,755)
