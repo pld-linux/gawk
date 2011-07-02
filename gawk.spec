@@ -25,6 +25,7 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	libtool
 BuildRequires:	libsigsegv
+BuildRequires:	readline-devel
 BuildRequires:	texinfo >= 4.3
 Requires:	mktemp
 Requires:	sed
