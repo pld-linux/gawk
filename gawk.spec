@@ -9,17 +9,16 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	3.1.8
+Version:	4.0.0
 Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
-# Source0-md5:	52b41c6c4418b3226dfb8f82076193bb
+# Source0-md5:	7cdc48e99b885a4bbe0e98dcf1706b22
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
-Patch2:		%{name}-3.1.3-getpgrp_void.patch
 URL:		http://www.gnu.org/software/gawk/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -116,7 +115,6 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 rm -f po/stamp-po
 
@@ -159,6 +157,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README FUTURES LIMITATIONS NEWS POSIX.STD PROBLEMS
+%attr(755,root,root) %{_bindir}/dgawk
 %attr(755,root,root) %{_bindir}/gawk
 %attr(755,root,root) %{_bindir}/igawk
 %attr(755,root,root) %{_bindir}/pgawk*
