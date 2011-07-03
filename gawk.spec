@@ -19,11 +19,11 @@ Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-ma
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
+Patch2:		%{name}-pl.po-update.patch
 URL:		http://www.gnu.org/software/gawk/
-BuildRequires:	autoconf >= 2.63
+BuildRequires:	autoconf >= 2.68
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	gettext-devel >= 0.17
-BuildRequires:	libtool
+BuildRequires:	gettext-devel >= 0.18.1
 BuildRequires:	libsigsegv
 BuildRequires:	readline-devel
 BuildRequires:	texinfo >= 4.3
@@ -116,8 +116,9 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
-rm -f po/stamp-po
+%{__rm} po/stamp-po
 
 %build
 %{__gettextize}
@@ -140,9 +141,9 @@ install -d $RPM_BUILD_ROOT%{_includedir}
 install *.h $RPM_BUILD_ROOT%{_includedir}
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
-rm -f $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
+%{__rm} $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/README.gawk-non-english-man-pages
 rm -f $RPM_BUILD_ROOT%{_datadir}/info/dir
-rm -f $RPM_BUILD_ROOT%{_mandir}/README.gawk-non-english-man-pages
 
 %find_lang %{name}
 
@@ -157,14 +158,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README FUTURES LIMITATIONS NEWS POSIX.STD PROBLEMS
+%doc AUTHORS ChangeLog FUTURES LIMITATIONS NEWS POSIX.STD PROBLEMS README TODO
 %attr(755,root,root) %{_bindir}/dgawk
 %attr(755,root,root) %{_bindir}/gawk
 %attr(755,root,root) %{_bindir}/igawk
 %attr(755,root,root) %{_bindir}/pgawk*
 %attr(755,root,root) %{_libdir}/awk
 %{_datadir}/awk
-%{_mandir}/man1/*
+%{_mandir}/man1/gawk.1*
+%{_mandir}/man1/igawk.1*
+%{_mandir}/man1/pgawk.1*
 %lang(es) %{_mandir}/es/man1/*
 %lang(fr) %{_mandir}/fr/man1/*
 %lang(it) %{_mandir}/it/man1/*

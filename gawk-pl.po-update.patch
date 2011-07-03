@@ -1,0 +1,67 @@
+--- gawk-4.0.0/po/pl.po.orig	2011-06-23 08:46:20.000000000 +0200
++++ gawk-4.0.0/po/pl.po	2011-07-03 08:18:01.511340701 +0200
+@@ -7,10 +7,10 @@
+ #
+ msgid ""
+ msgstr ""
+-"Project-Id-Version: gawk 3.1.81\n"
++"Project-Id-Version: gawk 4.0.0\n"
+ "Report-Msgid-Bugs-To: arnold@skeeve.com\n"
+ "POT-Creation-Date: 2011-06-23 09:46+0300\n"
+-"PO-Revision-Date: 2011-05-14 11:41-0400\n"
++"PO-Revision-Date: 2011-07-03 08:15+0200\n"
+ "Last-Translator: Wojciech Polak <polak@gnu.org>\n"
+ "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+ "Language: pl\n"
+@@ -478,9 +478,8 @@
+ msgstr "nie można otworzyć `%s' do zapisu (%s)"
+ 
+ #: awkgram.y:4084
+-#, fuzzy
+ msgid "sending variable list to standard error"
+-msgstr "wysyłanie profilu na standardowe wyjście diagnostyczne"
++msgstr "wysyłanie listy zmiennych na standardowe wyjście diagnostyczne"
+ 
+ #: awkgram.y:4090
+ #, c-format
+@@ -1760,9 +1759,8 @@
+ msgstr "\t-C\t\t\t--copyright\n"
+ 
+ #: main.c:750
+-#, fuzzy
+ msgid "\t-d[file]\t\t--dump-variables[=file]\n"
+-msgstr "\t-d [plik]\t\t--dump-variables[=plik]\n"
++msgstr "\t-d[plik]\t\t--dump-variables[=plik]\n"
+ 
+ #: main.c:751
+ msgid "\t-e 'program-text'\t--source='program-text'\n"
+@@ -1797,9 +1795,8 @@
+ msgstr "\t-O\t\t\t--optimize\n"
+ 
+ #: main.c:759
+-#, fuzzy
+ msgid "\t-p[file]\t\t--profile[=file]\n"
+-msgstr "\t-p [plik]\t\t--profile[=plik]\n"
++msgstr "\t-p[plik]\t\t--profile[=plik]\n"
+ 
+ #: main.c:760
+ msgid "\t-P\t\t\t--posix\n"
+@@ -1943,14 +1940,14 @@
+ msgstr "`%s' nie jest nazwą zmiennej, szukanie pliku `%s=%s'"
+ 
+ #: main.c:1185
+-#, fuzzy, c-format
++#, c-format
+ msgid "cannot use gawk builtin `%s' as variable name"
+-msgstr "rozszerzenie: nie można użyć wbudowanej w gawk `%s' jako nazwy funkcji"
++msgstr "nie można użyć wbudowanej w gawk funkcji `%s' jako nazwy zmiennej"
+ 
+ #: main.c:1190
+-#, fuzzy, c-format
++#, c-format
+ msgid "cannot use function `%s' as variable name"
+-msgstr "nie można użyć nazwy funkcji `%s' jako zmiennej lub tablicy"
++msgstr "nie można użyć funkcji `%s' jako nazwy zmiennej"
+ 
+ #: main.c:1243
+ msgid "floating point exception"
