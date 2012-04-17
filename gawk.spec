@@ -26,7 +26,9 @@ BuildRequires:	automake >= 1:1.11
 BuildRequires:	gettext-devel >= 0.18.1
 BuildRequires:	libsigsegv
 BuildRequires:	readline-devel
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	texinfo >= 4.3
+BuildRequires:	xz
 Requires:	mktemp
 Requires:	sed
 Obsoletes:	gawk-doc
