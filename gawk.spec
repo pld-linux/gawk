@@ -9,18 +9,17 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	4.0.0
-Release:	2
+Version:	4.0.1
+Release:	1
 License:	GPL v3+
 Group:		Applications/Text
-Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.bz2
-# Source0-md5:	7cdc48e99b885a4bbe0e98dcf1706b22
+Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.xz
+# Source0-md5:	a601b032c39cd982f34272664f8afa49
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-pl.po-update.patch
-Patch3:		%{name}-gsub_regenarate.patch
 URL:		http://www.gnu.org/software/gawk/
 BuildRequires:	autoconf >= 2.68
 BuildRequires:	automake >= 1:1.11
@@ -118,7 +117,6 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %{__rm} po/stamp-po
 
