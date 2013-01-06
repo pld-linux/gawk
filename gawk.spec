@@ -9,20 +9,20 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	4.0.1
+Version:	4.0.2
 Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.xz
-# Source0-md5:	a601b032c39cd982f34272664f8afa49
+# Source0-md5:	8a9b2f1170ac9dcd3eb13716b5ec4021
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		%{name}-pl.po-update.patch
 URL:		http://www.gnu.org/software/gawk/
-BuildRequires:	autoconf >= 2.68
-BuildRequires:	automake >= 1:1.11
+BuildRequires:	autoconf >= 2.69
+BuildRequires:	automake >= 1:1.12
 BuildRequires:	gettext-devel >= 0.18.1
 BuildRequires:	libsigsegv
 BuildRequires:	readline-devel
@@ -167,6 +167,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pgawk*
 %attr(755,root,root) %{_libdir}/awk
 %{_datadir}/awk
+%{_mandir}/man1/dgawk.1*
 %{_mandir}/man1/gawk.1*
 %{_mandir}/man1/igawk.1*
 %{_mandir}/man1/pgawk.1*
