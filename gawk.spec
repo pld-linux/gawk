@@ -1,3 +1,4 @@
+%bcond_without	tests
 Summary:	The GNU version of the awk text processing utility
 Summary(de.UTF-8):	Die GNU-Version des AWK-Textverarbeitungsutilitys
 Summary(es.UTF-8):	Utilitarios GNU para manipulación de archivos texto
@@ -131,6 +132,8 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 %configure
 
 %{__make} -j1
+
+%{?with_tests:%{__make} -j1 check}
 
 %install
 rm -rf $RPM_BUILD_ROOT
