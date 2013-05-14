@@ -9,22 +9,22 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	4.0.2
+Version:	4.1.0
 Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.xz
-# Source0-md5:	8a9b2f1170ac9dcd3eb13716b5ec4021
+# Source0-md5:	b18992ff8faf3217dab55d2d0aa7d707
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
-Patch2:		%{name}-pl.po-update.patch
 URL:		http://www.gnu.org/software/gawk/
 BuildRequires:	autoconf >= 2.69
-BuildRequires:	automake >= 1:1.12
+BuildRequires:	automake >= 1:1.13
 BuildRequires:	gettext-devel >= 0.18.1
 BuildRequires:	libsigsegv
+BuildRequires:	mpfr-devel
 BuildRequires:	readline-devel
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	texinfo >= 4.3
@@ -118,7 +118,6 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %{__rm} po/stamp-po
 
@@ -147,6 +146,8 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/README.gawk-non-english-man-pages
 rm -f $RPM_BUILD_ROOT%{_datadir}/info/dir
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/gawk/*.la
+
 %find_lang %{name}
 
 %clean
@@ -160,17 +161,25 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog FUTURES LIMITATIONS NEWS POSIX.STD PROBLEMS README TODO
-%attr(755,root,root) %{_bindir}/dgawk
+%doc AUTHORS ChangeLog NEWS POSIX.STD README TODO
 %attr(755,root,root) %{_bindir}/gawk
 %attr(755,root,root) %{_bindir}/igawk
-%attr(755,root,root) %{_bindir}/pgawk*
 %attr(755,root,root) %{_libdir}/awk
+%dir %{_libdir}/gawk
+%attr(755,root,root) %{_libdir}/gawk/*.so
 %{_datadir}/awk
-%{_mandir}/man1/dgawk.1*
 %{_mandir}/man1/gawk.1*
 %{_mandir}/man1/igawk.1*
-%{_mandir}/man1/pgawk.1*
+%{_mandir}/man3/filefuncs.3am*
+%{_mandir}/man3/fnmatch.3am*
+%{_mandir}/man3/fork.3am*
+%{_mandir}/man3/ordchr.3am*
+%{_mandir}/man3/readdir.3am*
+%{_mandir}/man3/readfile.3am*
+%{_mandir}/man3/revoutput.3am*
+%{_mandir}/man3/revtwoway.3am*
+%{_mandir}/man3/rwarray.3am*
+%{_mandir}/man3/time.3am*
 %lang(es) %{_mandir}/es/man1/*
 %lang(fr) %{_mandir}/fr/man1/*
 %lang(it) %{_mandir}/it/man1/*

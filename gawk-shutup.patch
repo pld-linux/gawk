@@ -1,9 +1,9 @@
---- gawk-3.1.0/node.c.shutup	Tue Jul 31 13:50:50 2001
-+++ gawk-3.1.0/node.c	Tue Jul 31 13:51:46 2001
-@@ -560,8 +560,6 @@
+--- gawk-4.1.0/node.c.orig	2013-05-14 16:32:26.451229671 +0200
++++ gawk-4.1.0/node.c	2013-05-14 16:33:25.144560541 +0200
+@@ -590,8 +590,6 @@
  
  		if (! warned[uc]) {
- 			warned[uc] = TRUE;
+ 			warned[uc] = true;
 -
 -			warning(_("escape sequence `\\%c' treated as plain `%c'"), uc, uc);
  		}
