@@ -1,4 +1,7 @@
-%bcond_without	tests
+#
+# Conditional build
+%bcond_without	tests	# do not perform "make check"
+#
 Summary:	The GNU version of the awk text processing utility
 Summary(de.UTF-8):	Die GNU-Version des AWK-Textverarbeitungsutilitys
 Summary(es.UTF-8):	Utilitarios GNU para manipulación de archivos texto
