@@ -13,12 +13,12 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	4.1.0
+Version:	4.1.1
 Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.xz
-# Source0-md5:	b18992ff8faf3217dab55d2d0aa7d707
+# Source0-md5:	a2a26543ce410eb74bc4a508349ed09a
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
@@ -167,7 +167,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS POSIX.STD README TODO
+%doc AUTHORS ChangeLog NEWS POSIX.STD README
 %attr(755,root,root) %{_bindir}/gawk
 %attr(755,root,root) %{_bindir}/igawk
 %attr(755,root,root) %{_libdir}/awk
@@ -179,6 +179,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/filefuncs.3am*
 %{_mandir}/man3/fnmatch.3am*
 %{_mandir}/man3/fork.3am*
+%{_mandir}/man3/inplace.3am*
 %{_mandir}/man3/ordchr.3am*
 %{_mandir}/man3/readdir.3am*
 %{_mandir}/man3/readfile.3am*
