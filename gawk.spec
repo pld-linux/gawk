@@ -26,7 +26,7 @@ Patch1:		%{name}-shutup.patch
 URL:		http://www.gnu.org/software/gawk/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake >= 1:1.13
-BuildRequires:	gettext-devel >= 0.18.1
+BuildRequires:	gettext-tools >= 0.18.1
 BuildRequires:	libsigsegv
 BuildRequires:	mpfr-devel
 BuildRequires:	readline-devel
