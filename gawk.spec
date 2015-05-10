@@ -13,12 +13,12 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	4.1.1
-Release:	3
+Version:	4.1.2
+Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.xz
-# Source0-md5:	a2a26543ce410eb74bc4a508349ed09a
+# Source0-md5:	29555d982b8b678b0091010eb7508e4a
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
@@ -26,8 +26,9 @@ Patch1:		%{name}-shutup.patch
 Patch2:		no-pty-test.patch
 URL:		http://www.gnu.org/software/gawk/
 BuildRequires:	autoconf >= 2.69
-BuildRequires:	automake >= 1:1.13
-BuildRequires:	gettext-tools >= 0.18.1
+BuildRequires:	automake >= 1:1.15
+BuildRequires:	gettext-tools >= 0.18.2
+BuildRequires:	gmp-devel
 BuildRequires:	libsigsegv
 BuildRequires:	mpfr-devel
 BuildRequires:	readline-devel
@@ -153,8 +154,6 @@ bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %{__rm} $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/README.gawk-non-english-man-pages
 rm -f $RPM_BUILD_ROOT%{_datadir}/info/dir
-
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/gawk/*.la
 
 %find_lang %{name}
 
