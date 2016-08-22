@@ -1,7 +1,7 @@
 #
 # Conditional build
 %bcond_without	tests	# do not perform "make check"
-#
+
 Summary:	The GNU version of the awk text processing utility
 Summary(de.UTF-8):	Die GNU-Version des AWK-Textverarbeitungsutilitys
 Summary(es.UTF-8):	Utilitarios GNU para manipulación de archivos texto
@@ -14,7 +14,7 @@ Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
 Version:	4.1.2
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.xz
@@ -135,7 +135,8 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 %{__autoheader}
 %{__automake}
 
-%configure
+%configure \
+	--datadir=%{_libdir}
 
 %{__make} -j1
 
@@ -173,10 +174,12 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS POSIX.STD README
 %attr(755,root,root) %{_bindir}/gawk
 %attr(755,root,root) %{_bindir}/igawk
-%attr(755,root,root) %{_libdir}/awk
+%dir %{_libdir}/awk
+%attr(755,root,root) %{_libdir}/awk/grcat
+%attr(755,root,root) %{_libdir}/awk/pwcat
+%{_libdir}/awk/*.awk
 %dir %{_libdir}/gawk
 %attr(755,root,root) %{_libdir}/gawk/*.so
-%{_datadir}/awk
 %{_mandir}/man1/gawk.1*
 %{_mandir}/man1/igawk.1*
 %{_mandir}/man3/filefuncs.3am*
