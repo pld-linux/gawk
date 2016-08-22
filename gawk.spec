@@ -143,12 +143,14 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# mawk provides system wide 'awk'
+%{__rm} $RPM_BUILD_ROOT%{_bindir}/awk
+
 install -d $RPM_BUILD_ROOT%{_includedir}
-install *.h $RPM_BUILD_ROOT%{_includedir}
+cp -p *.h $RPM_BUILD_ROOT%{_includedir}
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %{__rm} $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
