@@ -13,12 +13,12 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	4.1.2
-Release:	2
+Version:	4.1.4
+Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.xz
-# Source0-md5:	29555d982b8b678b0091010eb7508e4a
+# Source0-md5:	4e7dbc81163e60fd4f0b52496e7542c9
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
@@ -27,7 +27,7 @@ Patch2:		no-pty-test.patch
 URL:		http://www.gnu.org/software/gawk/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake >= 1:1.15
-BuildRequires:	gettext-tools >= 0.18.2
+BuildRequires:	gettext-tools >= 0.19.7
 BuildRequires:	gmp-devel
 BuildRequires:	libsigsegv
 BuildRequires:	mpfr-devel

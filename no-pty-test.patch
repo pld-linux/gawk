@@ -1,6 +1,6 @@
---- gawk-4.1.2/test/Makefile.am.orig	2015-04-28 15:49:46.000000000 +0200
-+++ gawk-4.1.2/test/Makefile.am	2015-05-10 07:28:01.671200070 +0200
-@@ -743,8 +743,6 @@
+--- gawk-4.1.4/test/Makefile.am.orig	2016-08-24 21:31:55.000000000 +0200
++++ gawk-4.1.4/test/Makefile.am	2016-08-30 22:03:59.248680327 +0200
+@@ -780,8 +780,6 @@
  	prt1eval.ok \
  	prtoeval.awk \
  	prtoeval.ok \
@@ -9,12 +9,12 @@
  	rand-mpfr.ok \
  	rand.awk \
  	rand.ok \
-@@ -1060,7 +1058,7 @@
- 	manyfiles match1 match2 match3 mbstr1 \
+@@ -1126,7 +1124,7 @@
  	nastyparm negtime next nondec nondec2 \
  	patsplit posix printfbad1 printfbad2 printfbad3 printfbad4 printhuge procinfs \
--	profile0 profile1 profile2 profile3 profile4 profile5 profile6 profile7 pty1 \
-+	profile0 profile1 profile2 profile3 profile4 profile5 profile6 profile7 \
+ 	profile0 profile1 profile2 profile3 profile4 profile5 profile6 \
+-	profile7 profile8 pty1 \
++	profile7 profile8 \
  	rebuf regnul1 regnul2 regx8bit reginttrad reint reint2 rsgetline rsglstdin rsstart1 \
- 	rsstart2 rsstart3 rstest6 shadow sortfor sortu split_after_fpat \
+ 	rsstart2 rsstart3 rstest6 shadow sortfor sortfor2 sortu split_after_fpat \
  	splitarg4 strftime \
