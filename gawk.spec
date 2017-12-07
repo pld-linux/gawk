@@ -171,12 +171,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS POSIX.STD README
 %attr(755,root,root) %{_bindir}/gawk
-%dir %{_libdir}/awk
-%attr(755,root,root) %{_libdir}/awk/grcat
-%attr(755,root,root) %{_libdir}/awk/pwcat
-%{_libdir}/awk/*.awk
 %dir %{_libdir}/gawk
 %attr(755,root,root) %{_libdir}/gawk/*.so
+%dir %{_libdir}/awk
+%{_libdir}/awk/*.awk
+%if "%{_libexecdir}" != "%{_libdir}"
+%dir %{_libexecdir}/awk
+%endif
+%attr(755,root,root) %{_libexecdir}/awk/grcat
+%attr(755,root,root) %{_libexecdir}/awk/pwcat
 /etc/profile.d/gawk.csh
 /etc/profile.d/gawk.sh
 %{_mandir}/man1/gawk.1*
