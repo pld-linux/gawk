@@ -1,7 +1,6 @@
-diff -Nru gawk-3.1.3.orig/doc/gawk.texi gawk-3.1.3/doc/gawk.texi
---- gawk-3.1.3.orig/doc/gawk.texi	2003-07-04 19:40:47.000000000 +0200
-+++ gawk-3.1.3/doc/gawk.texi	2003-07-09 09:40:50.000000000 +0200
-@@ -4,13 +4,9 @@
+--- gawk-4.2.0/doc/gawk.texi.orig	2017-12-07 17:43:05.206383320 +0100
++++ gawk-4.2.0/doc/gawk.texi	2017-12-07 17:46:19.033047774 +0100
+@@ -10,13 +10,10 @@
  @settitle The GNU Awk User's Guide
  @c %**end of header (This is for running Texinfo on a region.)
  
@@ -12,23 +11,77 @@ diff -Nru gawk-3.1.3.orig/doc/gawk.texi gawk-3.1.3/doc/gawk.texi
 -@end direntry
 -@dircategory Individual utilities
 -@direntry
--* awk: (gawk)Invoking gawk.                     Text scanning and processing.
+-* awk: (gawk)Invoking Gawk.                     Text scanning and processing.
 +* Gawk: (gawk).				A text scanning and processing language
++* awk: (gawk)gawk.			Text scanning and processing
  @end direntry
  
- @set xref-automatic-section-title
-diff -Nru gawk-3.1.3.orig/doc/gawkinet.texi gawk-3.1.3/doc/gawkinet.texi
---- gawk-3.1.3.orig/doc/gawkinet.texi	2003-05-08 18:26:07.000000000 +0200
-+++ gawk-3.1.3/doc/gawkinet.texi	2003-07-09 09:42:35.000000000 +0200
+ @c Enable better indexing, requires texindex from Texinfo 6 or later.
+@@ -437,7 +434,7 @@
+ * Getting Started::                A basic introduction to using
+                                    @command{awk}. How to run an @command{awk}
+                                    program. Command-line syntax.
+-* Invoking Gawk::                  How to run @command{gawk}.
++* gawk::                           How to run @command{gawk}.
+ * Regexp::                         All about matching things using regular
+                                    expressions.
+ * Reading Files::                  How to read files and manipulate fields.
+@@ -1624,7 +1621,7 @@
+ provides the essentials you need to know to begin using @command{awk}.
+ 
+ @item
+-@ref{Invoking Gawk},
++@ref{gawk},
+ describes how to run @command{gawk}, the meaning of its
+ command-line options, and how it finds @command{awk}
+ program source files.
+@@ -2325,7 +2322,7 @@
+ @ref{Getting Started}
+ 
+ @item
+-@ref{Invoking Gawk}
++@ref{gawk}
+ 
+ @item
+ @ref{Regexp}
+@@ -3718,7 +3715,7 @@
+ @samp{||}, @samp{&&}, @code{do}, and @code{else}.
+ @end itemize
+ 
+-@node Invoking Gawk
++@node gawk
+ @chapter Running @command{awk} and @command{gawk}
+ 
+ This @value{CHAPTER} covers how to run @command{awk}, both POSIX-standard
+--- gawk-4.2.0/doc/gawkinet.texi.orig	2017-12-07 17:43:05.506383316 +0100
++++ gawk-4.2.0/doc/gawkinet.texi	2017-12-07 17:49:30.369712255 +0100
 @@ -5,9 +5,9 @@
  @c %**end of header (This is for running Texinfo on a region.)
  @c FIXME: web vs. Web
  
 -@dircategory Network applications
-+@dircategory Programming languages:
++@dircategory Programming Languages:
  @direntry
--* Gawkinet: (gawkinet).         TCP/IP Internetworking With `gawk'.
-+* Gawkinet: (gawkinet).			TCP/IP Internetworking With `gawk'
+-* awkinet: (gawkinet).          TCP/IP Internetworking With `gawk'.
++* awkinet: (gawkinet).			TCP/IP Internetworking With `gawk'
  @end direntry
  
- @iftex
+ @c Enable better indexing, requires texindex from Texinfo 6 or later.
+--- gawk-4.2.0/doc/gawkworkflow.texi.orig	2017-08-17 06:58:56.000000000 +0200
++++ gawk-4.2.0/doc/gawkworkflow.texi	2017-12-07 20:35:57.092931555 +0100
+@@ -5,13 +5,9 @@
+ @settitle GNU Awk Development Workflow
+ @c %**end of header (This is for running Texinfo on a region.)
+ 
+-@dircategory Text creation and manipulation
++@dircategory Programming Languages:
+ @direntry
+-* Gawk Work Flow: (gawkworkflow).                 Participating in @command{gawk} development.
+-@end direntry
+-@dircategory Individual utilities
+-@direntry
+-* Gawk Work Flow: (gawkworkflow)Overview.         Participating in @command{gawk} development.
++* Gawk Work Flow: (gawkworkflow).	Participating in @command{gawk} development
+ @end direntry
+ 
+ @c With early 2014 texinfo.tex, restore PDF links and colors

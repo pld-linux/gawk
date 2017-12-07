@@ -13,12 +13,12 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	4.1.4
-Release:	2
+Version:	4.2.0
+Release:	1
 License:	GPL v3+
 Group:		Applications/Text
-Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.xz
-# Source0-md5:	4e7dbc81163e60fd4f0b52496e7542c9
+Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.lz
+# Source0-md5:	716b498c13c96c01758ab59415763e72
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
@@ -30,17 +30,15 @@ BuildRequires:	automake >= 1:1.15
 BuildRequires:	gettext-tools >= 0.19.7
 BuildRequires:	gmp-devel
 BuildRequires:	libsigsegv
+BuildRequires:	lzip
 BuildRequires:	mpfr-devel
 BuildRequires:	readline-devel
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	texinfo >= 4.3
-BuildRequires:	xz
 Requires:	mktemp
 Requires:	sed
 Obsoletes:	gawk-doc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_includedir	%{_prefix}/include/awk
 
 %description
 The gawk packages contains the GNU version of awk, a text processing
@@ -147,16 +145,16 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
+rm -f $RPM_BUILD_ROOT%{_infodir}/dir
+
 # mawk provides system wide 'awk'
 %{__rm} $RPM_BUILD_ROOT%{_bindir}/awk
 
-install -d $RPM_BUILD_ROOT%{_includedir}
-cp -p *.h $RPM_BUILD_ROOT%{_includedir}
-
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
-%{__rm} $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/README.gawk-non-english-man-pages
-rm -f $RPM_BUILD_ROOT%{_datadir}/info/dir
+# igawk is declared as obsolete since 4.0.0, dropped in 4.2.0
+%{__rm} $RPM_BUILD_ROOT%{_mandir}/{es,fr,it,ja,pl}/man1/igawk.1
 
 %find_lang %{name}
 
@@ -173,15 +171,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS POSIX.STD README
 %attr(755,root,root) %{_bindir}/gawk
-%attr(755,root,root) %{_bindir}/igawk
 %dir %{_libdir}/awk
 %attr(755,root,root) %{_libdir}/awk/grcat
 %attr(755,root,root) %{_libdir}/awk/pwcat
 %{_libdir}/awk/*.awk
 %dir %{_libdir}/gawk
 %attr(755,root,root) %{_libdir}/gawk/*.so
+/etc/profile.d/gawk.csh
+/etc/profile.d/gawk.sh
 %{_mandir}/man1/gawk.1*
-%{_mandir}/man1/igawk.1*
 %{_mandir}/man3/filefuncs.3am*
 %{_mandir}/man3/fnmatch.3am*
 %{_mandir}/man3/fork.3am*
@@ -193,13 +191,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/revtwoway.3am*
 %{_mandir}/man3/rwarray.3am*
 %{_mandir}/man3/time.3am*
-%lang(es) %{_mandir}/es/man1/*
-%lang(fr) %{_mandir}/fr/man1/*
-%lang(it) %{_mandir}/it/man1/*
-%lang(ja) %{_mandir}/ja/man1/*
-%lang(pl) %{_mandir}/pl/man1/*
+%lang(es) %{_mandir}/es/man1/gawk.1*
+%lang(fr) %{_mandir}/fr/man1/gawk.1*
+%lang(it) %{_mandir}/it/man1/gawk.1*
+%lang(ja) %{_mandir}/ja/man1/gawk.1*
+%lang(pl) %{_mandir}/pl/man1/gawk.1*
 %{_infodir}/gawk*.info*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}
+%{_includedir}/gawkapi.h
