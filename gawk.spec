@@ -13,16 +13,14 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	4.2.0
-Release:	2
+Version:	4.2.1
+Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.lz
-# Source0-md5:	716b498c13c96c01758ab59415763e72
+# Source0-md5:	4b1c1b18f40b5a4bc50e929480b06f89
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
-Patch100:	gawk-4.2.0-000-do-not-fold-constant-strings.patch
-Patch101:	gawk-4.2.0-001-rwarray-small-improvements.patch
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		no-pty-test.patch
@@ -122,8 +120,6 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 
 %prep
 %setup -q
-%patch100 -p1
-%patch101 -p1
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -136,7 +132,13 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-
+cd extension
+%{__libtoolize}
+%{__aclocal} -I m4 -I ../m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
+cd ..
 %configure \
 	--datadir=%{_libdir}
 

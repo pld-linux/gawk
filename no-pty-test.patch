@@ -1,19 +1,21 @@
---- gawk-4.2.0/test/Makefile.am.orig	2017-10-17 20:46:48.000000000 +0200
-+++ gawk-4.2.0/test/Makefile.am	2017-12-07 17:51:57.069710581 +0100
-@@ -876,8 +876,6 @@
+--- gawk-4.2.1/test/Makefile.am.orig	2018-07-27 22:17:12.474419365 +0200
++++ gawk-4.2.1/test/Makefile.am	2018-07-27 22:17:55.137752212 +0200
+@@ -887,10 +887,6 @@
  	prt1eval.ok \
  	prtoeval.awk \
  	prtoeval.ok \
 -	pty1.awk \
 -	pty1.ok \
+-	pty2.awk \
+-	pty2.ok \
  	rand-mpfr.ok \
  	rand.awk \
  	rand.ok \
-@@ -1261,7 +1259,7 @@
+@@ -1282,7 +1278,7 @@
  	nastyparm negtime next nondec nondec2 nonfatal1 nonfatal2 nonfatal3 \
  	patsplit posix printfbad1 printfbad2 printfbad3 printfbad4 printhuge \
  	procinfs profile0 profile1 profile2 profile3 profile4 profile5 profile6 \
--	profile7 profile8 profile9 profile10 pty1 \
+-	profile7 profile8 profile9 profile10 pty1 pty2 \
 +	profile7 profile8 profile9 profile10 \
  	rebuf regnul1 regnul2 regx8bit reginttrad reint reint2 rsgetline rsglstdin \
  	rsstart1 rsstart2 rsstart3 rstest6 \
