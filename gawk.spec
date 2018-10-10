@@ -14,13 +14,18 @@ Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
 Version:	4.2.1
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.lz
 # Source0-md5:	4b1c1b18f40b5a4bc50e929480b06f89
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
+Patch100:	gawk-4.2.1-000-add-support-for-a-and-A-in-printf.patch
+Patch101:	gawk-4.2.1-001-remove-the-tail-recursion-optimization.patch
+Patch102:	gawk-4.2.1-002-copy-MPZ-MPFR-bits-also-in-r_dupnode.patch
+Patch103:	gawk-4.2.1-003-fix-rebuilding-records-if-using-API-parser.patch
+Patch104:	gawk-4.2.1-004-fix-a-corner-case-with-EPIPE-to-stdout-stderr.patch
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		no-pty-test.patch
@@ -120,6 +125,12 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 
 %prep
 %setup -q
+%patch100 -p1
+%patch101 -p1
+%patch102 -p1
+%patch103 -p1
+%patch104 -p1
+
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1

@@ -1,0 +1,116 @@
+From 06fe8e801efc0e6a098d93cf104157fb4ef705e8 Mon Sep 17 00:00:00 2001
+From: "Arnold D. Robbins" <arnold@skeeve.com>
+Date: Sun, 17 Jun 2018 21:52:28 +0300
+Subject: [PATCH] Fix a corner case with EPIPE to stdout/stderr.
+
+---
+ awk.h       | 2 +-
+ debug.c     | 4 ++--
+ interpret.h | 6 +++++-
+ io.c        | 9 ++++++++-
+ 4 files changed, 16 insertions(+), 5 deletions(-)
+
+diff --git a/awk.h b/awk.h
+index 36e71f2..cdf683d 100644
+--- a/awk.h
++++ b/awk.h
+@@ -1581,7 +1581,7 @@ extern struct redirect *redirect_string(const char *redir_exp_str,
+ 		int *errflg, int extfd, bool failure_fatal);
+ extern NODE *do_close(int nargs);
+ extern int flush_io(void);
+-extern int close_io(bool *stdio_problem);
++extern int close_io(bool *stdio_problem, bool *got_EPIPE);
+ typedef enum { CLOSE_ALL, CLOSE_TO, CLOSE_FROM } two_way_close_type;
+ extern int close_rp(struct redirect *rp, two_way_close_type how);
+ extern int devopen_simple(const char *name, const char *mode, bool try_real_open);
+diff --git a/debug.c b/debug.c
+index 3e76ae6..a587d8f 100644
+--- a/debug.c
++++ b/debug.c
+@@ -5398,11 +5398,11 @@ save_options(const char *file)
+ static void
+ close_all()
+ {
+-	bool stdio_problem;
++	bool stdio_problem, got_EPIPE;
+ 	struct command_source *cs;
+ 
+ 	(void) nextfile(& curfile, true);	/* close input data file */
+-	(void) close_io(& stdio_problem);
++	(void) close_io(& stdio_problem, & got_EPIPE);
+ 	if (cur_srcfile->fd != INVALID_HANDLE) {
+ 		close(cur_srcfile->fd);
+ 		cur_srcfile->fd = INVALID_HANDLE;
+diff --git a/interpret.h b/interpret.h
+index 20fcb7a..8408a53 100644
+--- a/interpret.h
++++ b/interpret.h
+@@ -110,6 +110,7 @@ top:
+ 		case Op_atexit:
+ 		{
+ 			bool stdio_problem = false;
++			bool got_EPIPE = false;
+ 
+ 			/* avoid false source indications */
+ 			source = NULL;
+@@ -125,7 +126,7 @@ top:
+ 			 * and pipes, in that it doesn't affect their exit status.
+ 			 * So we no longer do either.
+ 			 */
+-			(void) close_io(& stdio_problem);
++			(void) close_io(& stdio_problem, & got_EPIPE);
+ 			/*
+ 			 * However, we do want to exit non-zero if there was a problem
+ 			 * with stdout/stderr, so we reinstate a slightly different
+@@ -135,6 +136,9 @@ top:
+ 				exit_val = 1;
+ 
+ 			close_extensions();
++
++			if (got_EPIPE)
++				die_via_sigpipe();
+ 		}
+ 			break;
+ 
+diff --git a/io.c b/io.c
+index 1a1d8cc..faccb4b 100644
+--- a/io.c
++++ b/io.c
+@@ -1474,12 +1474,13 @@ flush_io()
+ /* close_io --- close all open files, called when exiting */
+ 
+ int
+-close_io(bool *stdio_problem)
++close_io(bool *stdio_problem, bool *got_EPIPE)
+ {
+ 	struct redirect *rp;
+ 	struct redirect *next;
+ 	int status = 0;
+ 
++	*stdio_problem = *got_EPIPE = false;
+ 	errno = 0;
+ 	for (rp = red_head; rp != NULL; rp = next) {
+ 		next = rp->next;
+@@ -1505,6 +1506,9 @@ close_io(bool *stdio_problem)
+ #endif
+ 		if (errno != EPIPE)
+ 			warning(_("error writing standard output (%s)"), strerror(errno));
++		else
++			*got_EPIPE = true;
++
+ 		status++;
+ 		*stdio_problem = true;
+ 	}
+@@ -1515,6 +1519,9 @@ close_io(bool *stdio_problem)
+ #endif
+ 		if (errno != EPIPE)
+ 			warning(_("error writing standard error (%s)"), strerror(errno));
++		else
++			*got_EPIPE = true;
++
+ 		status++;
+ 		*stdio_problem = true;
+ 	}
+-- 
+2.14.4
+
