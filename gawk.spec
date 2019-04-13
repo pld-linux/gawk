@@ -27,7 +27,7 @@ Patch2:		no-pty-test.patch
 URL:		http://www.gnu.org/software/gawk/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake >= 1:1.15
-BuildRequires:	gettext-tools >= 0.19.7
+BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	gmp-devel
 BuildRequires:	libsigsegv
 BuildRequires:	lzip
