@@ -29,7 +29,7 @@ BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake >= 1:1.15
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	gmp-devel
-BuildRequires:	libsigsegv
+BuildRequires:	libsigsegv-devel
 BuildRequires:	lzip
 BuildRequires:	mpfr-devel
 BuildRequires:	readline-devel
