@@ -56,8 +56,8 @@
 --- gawk-4.2.0/doc/gawkinet.texi.orig	2017-12-07 17:43:05.506383316 +0100
 +++ gawk-4.2.0/doc/gawkinet.texi	2017-12-07 17:49:30.369712255 +0100
 @@ -5,9 +5,9 @@
- @c %**end of header (This is for running Texinfo on a region.)
- @c FIXME: web vs. Web
+ @c https://english.stackexchange.com/questions/120869/should-i-capitalize-the-word-web-in-this-sentence
+ @c We leave the many occurrences of web in this file as they are.
  
 -@dircategory Network applications
 +@dircategory Programming Languages:
