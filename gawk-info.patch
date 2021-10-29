@@ -16,7 +16,7 @@
 +* awk: (gawk)gawk.			Text scanning and processing
  @end direntry
  
- @c Enable better indexing, requires texindex from Texinfo 6 or later.
+ @ifset FOR_PRINT
 @@ -437,7 +434,7 @@
  * Getting Started::                A basic introduction to using
                                     @command{awk}. How to run an @command{awk}
@@ -66,7 +66,7 @@
 +* awkinet: (gawkinet).			TCP/IP Internetworking With `gawk'
  @end direntry
  
- @c Enable better indexing, requires texindex from Texinfo 6 or later.
+ @iftex
 --- gawk-4.2.0/doc/gawkworkflow.texi.orig	2017-08-17 06:58:56.000000000 +0200
 +++ gawk-4.2.0/doc/gawkworkflow.texi	2017-12-07 20:35:57.092931555 +0100
 @@ -5,13 +5,9 @@
