@@ -85,3 +85,17 @@
  @end direntry
  
  @c With early 2014 texinfo.tex, restore PDF links and colors
+--- gawk-5.2.0/doc/pm-gawk.texi.orig	2022-08-25 07:35:28.000000000 +0200
++++ gawk-5.2.0/doc/pm-gawk.texi	2022-09-05 20:26:36.701023264 +0200
+@@ -21,9 +21,9 @@ pm-@gwk{}
+ @setfilename pm-gawk.info
+ @settitle @value{TYTL}
+ 
+-@dircategory Text creation and manipulation
++@dircategory Programming Languages:
+ @direntry
+-* pm-gawk: (pm-gawk).    Persistent memory version of gawk.
++* pm-gawk: (pm-gawk).			Persistent memory version of gawk
+ @end direntry
+ 
+ @fonttextsize 11
