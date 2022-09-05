@@ -13,12 +13,12 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	5.1.1
+Version:	5.2.0
 Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.lz
-# Source0-md5:	514c2066c7abce93b8c3476b5eaac237
+# Source0-md5:	9170f814d13ae29ec3c41598418ef030
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
@@ -26,6 +26,7 @@ Patch1:		%{name}-shutup.patch
 Patch2:		no-pty-test.patch
 URL:		http://www.gnu.org/software/gawk/
 BuildRequires:	autoconf >= 2.71
+BuildRequires:	autoconf-archive
 BuildRequires:	automake >= 1:1.16
 BuildRequires:	gettext-tools >= 0.20.2
 BuildRequires:	gmp-devel
@@ -177,6 +178,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS POSIX.STD README
 %attr(755,root,root) %{_bindir}/gawk
+%attr(755,root,root) %{_bindir}/gawkbug
 %dir %{_libdir}/gawk
 %attr(755,root,root) %{_libdir}/gawk/*.so
 %dir %{_libdir}/awk
@@ -189,6 +191,8 @@ rm -rf $RPM_BUILD_ROOT
 /etc/profile.d/gawk.csh
 /etc/profile.d/gawk.sh
 %{_mandir}/man1/gawk.1*
+%{_mandir}/man1/gawkbug.1*
+%{_mandir}/man1/pm-gawk.1*
 %{_mandir}/man3/filefuncs.3am*
 %{_mandir}/man3/fnmatch.3am*
 %{_mandir}/man3/fork.3am*
@@ -206,6 +210,7 @@ rm -rf $RPM_BUILD_ROOT
 %lang(ja) %{_mandir}/ja/man1/gawk.1*
 %lang(pl) %{_mandir}/pl/man1/gawk.1*
 %{_infodir}/gawk*.info*
+%{_infodir}/pm-gawk.info*
 
 %files devel
 %defattr(644,root,root,755)
