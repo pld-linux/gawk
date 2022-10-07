@@ -14,16 +14,19 @@ Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
 Version:	5.2.0
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications/Text
-Source0:	http://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.lz
+Source0:	https://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.lz
 # Source0-md5:	9170f814d13ae29ec3c41598418ef030
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-shutup.patch
 Patch2:		no-pty-test.patch
+# git -C gawk log -p --reverse gawk-5.2.0..gawk-5.2-stable ":(exclude)doc/gawk.info"
+Patch3:		gawk-branch.diff
+# Patch3-md5:	2ddb0e2fe687ba7c2bad28b3ab9b634a
 URL:		http://www.gnu.org/software/gawk/
 BuildRequires:	autoconf >= 2.71
 BuildRequires:	autoconf-archive
@@ -124,6 +127,7 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %{__rm} po/stamp-po
 
@@ -149,6 +153,7 @@ cd ..
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
