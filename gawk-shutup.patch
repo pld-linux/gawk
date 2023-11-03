@@ -8,4 +8,4 @@
 -			warning(_("escape sequence `\\%c' treated as plain `%c'"), uc, uc);
  		}
  	}
- 		return c;
+ 		buf[0] = c;
