@@ -13,12 +13,12 @@ Summary(ru.UTF-8):	GNU версия утилиты обработки текст
 Summary(tr.UTF-8):	GNU araçları metin düzenleyici
 Summary(uk.UTF-8):	GNU версія утиліти обробки текстів awk
 Name:		gawk
-Version:	5.3.0
+Version:	5.3.1
 Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	https://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.lz
-# Source0-md5:	ceacc7e6192ad5f7f6984490c680797c
+# Source0-md5:	6cb8074508190f9bdcb36a2377af0851
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/%{name}-non-english-man-pages.tar.bz2
 # Source1-md5:	80753d75be0f469f70e8c90e75121a9c
 Patch0:		%{name}-info.patch

@@ -11,14 +11,12 @@
  	rand-mpfr.ok \
  	rand.awk \
  	rand.ok \
-@@ -1558,8 +1558,8 @@
+@@ -1558,7 +1558,7 @@
  	printfbad1 printfbad2 printfbad3 printfbad4 printhuge procinfs \
- 	profile0 profile1 profile10 profile11 profile12 profile13 \
- 	profile14 profile15 profile16 profile17 profile2 profile3 \
--	profile4 profile5 profile6 profile7 profile8 profile9 pty1 \
--	pty2 rebuf regexsub reginttrad regnul1 regnul2 regx8bit reint \
-+	profile4 profile5 profile6 profile7 profile8 profile9 \
-+	rebuf regexsub reginttrad regnul1 regnul2 regx8bit reint \
+ 	profile0 profile1 profile2 profile3 profile4 profile5 profile6 \
+ 	profile7 profile8 profile9 profile10 profile11 profile12 \
+-	profile13 profile14 profile15 profile16 profile17 pty1 pty2 \
++	profile13 profile14 profile15 profile16 profile17 \
+ 	re_test rebuf regexsub reginttrad regnul1 regnul2 regx8bit reint \
  	reint2 rsgetline rsglstdin rsstart1 rsstart2 rsstart3 rstest6 \
  	sandbox1 shadow shadowbuiltin sortfor sortfor2 sortu sourcesplit \
- 	split_after_fpat splitarg4 strftfld strftime strtonum strtonum1 \
