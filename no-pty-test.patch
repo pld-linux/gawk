@@ -1,6 +1,6 @@
---- gawk-5.0.0/test/Makefile.am.orig	2019-04-07 20:53:42.000000000 +0200
-+++ gawk-5.0.0/test/Makefile.am	2019-04-12 21:10:26.219201910 +0200
-@@ -934,10 +934,6 @@
+--- gawk-5.3.2/test/Makefile.am.orig	2025-03-30 10:42:07.000000000 +0200
++++ gawk-5.3.2/test/Makefile.am	2025-04-04 17:57:09.909117619 +0200
+@@ -1146,10 +1146,6 @@ EXTRA_DIST = \
  	prt1eval.ok \
  	prtoeval.awk \
  	prtoeval.ok \
@@ -11,12 +11,11 @@
  	rand-mpfr.ok \
  	rand.awk \
  	rand.ok \
-@@ -1558,7 +1558,7 @@
- 	printfbad1 printfbad2 printfbad3 printfbad4 printhuge procinfs \
- 	profile0 profile1 profile2 profile3 profile4 profile5 profile6 \
- 	profile7 profile8 profile9 profile10 profile11 profile12 \
--	profile13 profile14 profile15 profile16 profile17 pty1 pty2 \
-+	profile13 profile14 profile15 profile16 profile17 \
+@@ -1633,7 +1629,6 @@ GAWK_EXT_TESTS = \
+ 	printhuge procinfs profile0 profile1 profile2 profile3 profile4 \
+ 	profile5 profile6 profile7 profile8 profile9 profile10 profile11 \
+ 	profile12 profile13 profile14 profile15 profile16 profile17 \
+-	pty1 pty2 \
  	re_test rebuf regexsub reginttrad regnul1 regnul2 regx8bit reint \
  	reint2 rsgetline rsglstdin rsstart1 rsstart2 rsstart3 rstest6 \
  	sandbox1 shadow shadowbuiltin sortfor sortfor2 sortu sourcesplit \
