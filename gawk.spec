@@ -30,6 +30,7 @@ BuildRequires:	autoconf-archive
 BuildRequires:	automake >= 1:1.16
 BuildRequires:	gettext-tools >= 0.20.2
 BuildRequires:	gmp-devel
+BuildRequires:	libtool
 BuildRequires:	lzip
 BuildRequires:	mpfr-devel
 BuildRequires:	readline-devel
