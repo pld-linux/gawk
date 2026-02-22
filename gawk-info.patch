@@ -52,7 +52,7 @@
 +@node gawk
  @chapter Running @command{awk} and @command{gawk}
  
- This @value{CHAPTER} covers how to run @command{awk}, both POSIX-standard
+ This chapter covers how to run @command{awk}, both POSIX-standard
 --- gawk-4.2.0/doc/gawkinet.texi.orig	2017-12-07 17:43:05.506383316 +0100
 +++ gawk-4.2.0/doc/gawkinet.texi	2017-12-07 17:49:30.369712255 +0100
 @@ -5,9 +5,9 @@
