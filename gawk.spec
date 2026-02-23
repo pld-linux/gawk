@@ -129,18 +129,18 @@ Ten pakiet zawiera pliki nagłówkowe dla gawka.
 
 %build
 %{__gettextize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__autoheader}
-%{__automake}
 cd extension
 %{__gettextize}
 %{__libtoolize}
-%{__aclocal} -I m4 -I ../m4
+%{__aclocal} -I ../m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
 cd ..
+%{__aclocal} -I m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--datadir=%{_libdir}
 
@@ -154,11 +154,15 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# unversioned is enough
 %{__rm} $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
-rm -f $RPM_BUILD_ROOT%{_infodir}/dir
-
 # mawk provides system wide 'awk'
 %{__rm} $RPM_BUILD_ROOT%{_bindir}/awk
+
+# index maintained by fix-info-dir
+rm -f $RPM_BUILD_ROOT%{_infodir}/dir
+# gawk maintainer notes, nothing useful without sources
+%{__rm} $RPM_BUILD_ROOT%{_infodir}/notes.info*
 
 bzip2 -dc %{SOURCE1} | tar xf - -C $RPM_BUILD_ROOT%{_mandir}
 %{__rm} $RPM_BUILD_ROOT%{_mandir}/README.gawk-non-english-man-pages
