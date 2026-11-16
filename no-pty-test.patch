@@ -1,17 +1,6 @@
---- gawk-5.4.0/test/Makefile.am.orig	2026-02-13 14:30:29.000000000 +0100
-+++ gawk-5.4.0/test/Makefile.am	2026-02-22 19:25:43.141210911 +0100
-@@ -1172,10 +1172,6 @@
- 	prt1eval.ok \
- 	prtoeval.awk \
- 	prtoeval.ok \
--	pty1.awk \
--	pty1.ok \
--	pty2.awk \
--	pty2.ok \
- 	rand-mpfr.ok \
- 	rand.awk \
- 	rand.ok \
-@@ -1662,7 +1658,7 @@
+--- gawk-5.4.2/test/Makefile.am.orig
++++ gawk-5.4.2/test/Makefile.am
+@@ -1786,7 +1786,7 @@
  	posix printfbad1 printfbad2 printfbad3 printfbad4 printhuge procinfs \
  	profile0 profile1 profile2 profile3 profile4 profile5 profile6 \
  	profile7 profile8 profile9 profile10 profile11 profile12 profile13 \
